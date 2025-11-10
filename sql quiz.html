@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SQL Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="sit.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+     body {
+      background-color: #f5f9fc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+    .quiz-box { 
+        background: #fff; 
+        border-radius: 10px; 
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 6px rgba(0,0,0,0.08);
+     }
+    #timer-box {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: #dc3545;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#timer-box.warning {
+  background: #ffc107;
+  color: #000;
+  animation: pulse 1s infinite;
+}
+
+.timer{
+      background: linear-gradient(45deg,#f80505, #ed0533, #f483a4, #f40545);
+      color: white;
+      padding: 10px 14px;
+      font-weight: bold;    
+      font-size: 20px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .timer:hover{
+     background: linear-gradient(45deg, #f40545, #f6628a,#f80505, #fb5e98);
+    }
+
+.score{
+      background: linear-gradient(45deg, #01692c, #78e49e, #01692c);
+      color: white;
+      padding: 10px 14px;
+      font-weight: bold;    
+      font-size: 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 20px;
+    }
+    .score:hover{
+     background: linear-gradient(45deg #01692c,#78e49e, #01692c,);
+    }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+  </style>
+</head>
+<body>
+
+<header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+
+<section>
+  <button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</section>
+
+  <div class="container">
+   <h2 class="text-center mb-4 box delay-1" style="color:#0b03f9;font-size:30px;text-align: center;">SQL Quiz – 20 Questions</h2>
+      <div class="text-end mb-3">
+  <span class="timer box delay-2">Time Left: <span id="timer">30:00</span></span>
+</div>
+
+<script>
+const questions = [
+  { q: "1. What does SQL stand for?", a: "Structured Query Language", o: ["Strong Question Language", "Structured Question Language", "Structured Query Language"] },
+  { q: "2. Which command is used to retrieve data from a database?", a: "SELECT", o: ["GET", "SELECT", "RETRIEVE"] },
+  { q: "3. Which SQL clause is used to filter records?", a: "WHERE", o: ["SELECT", "WHERE", "FROM"] },
+  { q: "4. Which SQL statement is used to update data?", a: "UPDATE", o: ["MODIFY", "UPDATE", "SET"] },
+  { q: "5. What does the JOIN clause do?", a: "Combines rows from two or more tables", o: ["Deletes tables", "Combines rows from two or more tables", "Sorts tables"] },
+  { q: "6. Which constraint ensures unique values?", a: "UNIQUE", o: ["PRIMARY KEY", "NOT NULL", "UNIQUE"] },
+  { q: "7. What keyword is used to sort results?", a: "ORDER BY", o: ["GROUP BY", "SORT BY", "ORDER BY"] },
+  { q: "8. Which function returns the total number of rows?", a: "COUNT()", o: ["SUM()", "COUNT()", "AVG()"] },
+  { q: "9. What is a primary key?", a: "Uniquely identifies each record", o: ["A foreign table", "Uniquely identifies each record", "Duplicates values"] },
+  { q: "10. What does the DELETE statement do?", a: "Removes records", o: ["Updates records", "Removes records", "Adds columns"] },
+  { q: "11. Which SQL keyword is used to remove duplicates?", a: "DISTINCT", o: ["UNIQUE", "DISTINCT", "FILTER"] },
+  { q: "12. Which of these is an aggregate function?", a: "SUM()", o: ["ADD()", "SUM()", "TOTAL()"] },
+  { q: "13. What is a foreign key?", a: "References primary key in another table", o: ["References same table", "Stores dates", "References primary key in another table"] },
+  { q: "14. Which command creates a new table?", a: "CREATE TABLE", o: ["MAKE TABLE", "NEW TABLE", "CREATE TABLE"] },
+  { q: "15. How do you rename a column?", a: "ALTER TABLE", o: ["RENAME COLUMN", "ALTER TABLE", "MODIFY TABLE"] },
+  { q: "16. Which SQL keyword is used with wildcards?", a: "LIKE", o: ["WHERE", "FIND", "LIKE"] },
+  { q: "17. What is used to combine conditions in WHERE?", a: "AND/OR", o: ["ADD", "AND/OR", "JOIN"] },
+  { q: "18. Which statement is used to grant permissions?", a: "GRANT", o: ["GIVE", "GRANT", "PERMIT"] },
+  { q: "19. What is the default sorting order?", a: "Ascending", o: ["Descending", "Ascending", "Random"] },
+  { q: "20. Which clause groups rows with same values?", a: "GROUP BY", o: ["SORT BY", "GROUP BY", "CLUSTER BY"] },
+];
+</script>
+
+    <div id="quiz-container">
+      <script>
+        questions.forEach((item, i) => {
+          const div = document.createElement("div");
+          div.className = "quiz-box";
+          div.innerHTML = `
+            <h6>${item.q}</h6>
+            <select class="form-select quiz" data-answer="${item.a}">
+              <option value="">-- Select --</option>
+              ${item.o.map(o => `<option>${o}</option>`).join('')}
+            </select>
+          `;
+          document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("quiz-container").appendChild(div);
+          });
+        });
+      </script>
+    </div>
+
+    <div class="text-center">
+      <button class="score box delay-3" onclick="calculateScore()">Check Score</button>
+    </div>
+  </div>
+
+  <script>
+    function calculateScore() {
+      const selects = document.querySelectorAll(".quiz");
+      let score = 0;
+      selects.forEach(s => { if (s.value === s.dataset.answer) score++; });
+      alert(`Your Score: ${score}/${selects.length}`);
+    }
+  </script>
+
+<script>
+let totalTime = 1800; // 30 minutes
+const timerDisplay = document.getElementById("timer");
+const timerBox = document.getElementById("timer-box");
+let warned = false;
+
+const timerInterval = setInterval(() => {
+  const minutes = Math.floor(totalTime / 60);
+  const seconds = totalTime % 60;
+  timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+  if (totalTime === 60 && !warned) {
+    warned = true;
+    timerBox.classList.add('warning');
+    alert("⚠️ Only 1 minute left! Wrap up your quiz soon.");
+  }
+
+  if (totalTime <= 0) {
+    clearInterval(timerInterval);
+    document.querySelectorAll('.quiz').forEach(el => el.disabled = true);
+    alert("⏰ Time's up! Auto-submitting your quiz.");
+    calculateScore();
+  }
+
+  totalTime--;
+}, 1000);
+</script>
+
+<script>
+  const allBoxes = document.querySelectorAll(".box, .box1, .box2");
+
+  function checkBoxes() {
+    const triggerBottom = window.innerHeight * 0.85;
+    allBoxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        box.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkBoxes);
+  window.addEventListener("load", checkBoxes);
+</script>
+
+<footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p style="color: white;"><b><i>Engineered for Excellence-</i></b></p>
+            <p style="color: white;">To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p style="color: white;"><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p style="color: white;">Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p style="color: white;">Tel: +91 73874 28839</p>
+            <p style="color: white;">+91 8208017009</p>
+            <p style="color: white;">Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+</body>
+</html>

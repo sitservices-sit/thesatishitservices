@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enroll in Course</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .checkout-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .checkout-header h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    .course-summary {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 20px;
+      color: #27ae60;
+    }
+    .btn-primary-custom {
+      background-color: #2e86de;
+      border-color: #2e86de;
+    }
+    .btn-outline-secondary-custom {
+      border-color: #999;
+      color: #555;
+    }
+    .order-confirmation-message {
+      display: none;
+      margin-top: 20px;
+      background-color: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #c3e6cb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+    <div class="checkout-header">
+      <h1 id="courseTitle">Enroll in Course</h1>
+      <p class="lead mb-0">Complete your secure enrollment</p>
+    </div>
+
+    <div class="course-summary">
+      <h4>Order Summary</h4>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span id="courseLabel">Course</span>
+        <span id="courseAmount">₹0.00</span>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>Total Amount:</strong>
+        <span class="price" id="courseTotal">₹0.00</span>
+      </div>
+    </div>
+
+    <form id="checkoutForm" novalidate>
+      <h4 class="mb-3">Billing Details</h4>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" required>
+          <div class="invalid-feedback">First name is required</div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" required>
+          <div class="invalid-feedback">Last name is required</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" required>
+        <div class="invalid-feedback">Please enter a valid email address</div>
+      </div>
+      <div class="mb-3">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10}">
+        <div class="invalid-feedback">Please enter a valid 10-digit phone number</div>
+      </div>
+      <div class="mb-3">
+        <label for="address">Address</label>
+        <textarea class="form-control" id="address" rows="2" required></textarea>
+        <div class="invalid-feedback">Address is required</div>
+      </div>
+
+      <h4 class="mt-4 mb-3">Payment Method</h4>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="paymentMethod" id="creditCard" checked required>
+        <label class="form-check-label" for="creditCard">Credit/Debit Card</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="paymentMethod" id="upi">
+        <label class="form-check-label" for="upi">UPI</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="paymentMethod" id="netBanking">
+        <label class="form-check-label" for="netBanking">Net Banking</label>
+      </div>
+
+      <hr class="my-4">
+      <button class="w-100 btn btn-primary-custom btn-lg" type="submit">Place Order</button>
+      <a id="backLink" href="#" class="w-100 btn btn-outline-secondary-custom btn-lg mt-3">Go Back to Course</a>
+    </form>
+
+    <div id="orderConfirmation" class="order-confirmation-message">
+      ✅ Order Placed Successfully! Thank you for your purchase.
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const params = new URLSearchParams(window.location.search);
+      const courseKey = params.get('course') || 'ai';
+      const price = params.get('price') || '30000';
+
+      const courseNames = {
+        ai: 'Artificial Intelligence',
+        python: 'Python Fullstack',
+        web: 'Web Development',
+        dsa: 'Data Structures & Algorithms',
+        sql: 'SQL & Databases',
+        testing: 'Software Testing'
+      };
+
+      const courseLinks = {
+        ai: 'ai-course.html',
+        python: 'pyfullstack-details.html',
+        web: 'webdev-course.html',
+        dsa: 'dsa-course.html',
+        sql: 'sql-course.html',
+        testing: 'software-testing.html'
+      };
+
+      const courseName = courseNames[courseKey] || 'Selected Course';
+      const backLink = courseLinks[courseKey] || '#';
+
+      document.getElementById('courseTitle').textContent = `Enroll in ${courseName}`;
+      document.getElementById('courseLabel').textContent = courseName;
+      document.getElementById('courseAmount').textContent = `₹${price}.00`;
+      document.getElementById('courseTotal').textContent = `₹${price}.00`;
+      document.getElementById('backLink').href = backLink;
+
+      const form = document.getElementById('checkoutForm');
+      const confirmation = document.getElementById('orderConfirmation');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (form.checkValidity()) {
+          confirmation.style.display = 'block';
+          form.reset();
+          setTimeout(() => {
+            confirmation.style.display = 'none';
+          }, 6000);
+        } else {
+          form.classList.add('was-validated');
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

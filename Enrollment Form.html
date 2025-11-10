@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join As Student</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="sit.css">
+  <style>
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: linear-gradient(360deg, #d1c6f2, #bf7fdc, #adc0f8, #7164a0);
+    margin: 0;
+    padding: 0;
+    }
+    
+    .form-box {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 800px;
+      font-size: larger;
+      margin: auto;
+      margin-bottom: 30px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .form-title {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color:#0b03f9;
+    }
+    .submit{
+      background: linear-gradient(45deg,#507af7, #3500f2, #8d6ded, #a805f4);
+      color: white;
+      padding: 5px 15px;
+      font-weight: bold;    
+      font-size: 20px;
+    }
+    .submit:hover{
+     background: linear-gradient(45deg, #3d03eb, #6488f4, #3500f2);
+    }
+    .cancel a{
+      background: linear-gradient(45deg,#f80505, #ed0533, #f483a4, #f40545);
+      color: white;
+      padding: 10px 14px;
+      font-weight: bold;    
+      font-size: 20px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .cancel a:hover{
+     background: linear-gradient(45deg, #f40545, #f6628a,#f80505, #fb5e98);
+    }
+  </style>
+</head>
+<body>
+  <header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+
+ <button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <section>
+    <div class="form-box">
+  <h2 class="form-title">Enrollment Form</h2>
+  <form id="enrollForm">
+    <div class="row g-3">
+      <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="fullname" class="form-control" required />
+            <div class="error-msg" id="nameError"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required />
+            <div class="error-msg" id="emailError"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" name="phone" class="form-control" required />
+            <div class="error-msg" id="phoneError"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Address</label>
+            <input type="text" name="address" class="form-control" required />
+          </div>
+
+          <!-- Courses (Multiple) -->
+          <div class="col-md-12">
+            <label class="form-label">Select Courses (You can choose multiple)</label>
+            <select name="courses" id="courseSelect" class="form-select" multiple required>
+              <option value="Full Stack Development">Full Stack Development</option>
+              <option value="Data Science">Data Science</option>
+              <option value="Python Programming">Python Programming</option>
+              <option value="Java with DSA">Java with DSA</option>
+              <option value="Cloud Computing">Cloud Computing</option>
+            </select>
+            <div class="error-msg" id="courseError"></div>
+          </div>
+
+          <!-- Auto-filled Details -->
+          <div class="col-md-6">
+            <label class="form-label">Total Duration</label>
+            <input type="text" id="durationField" name="duration" class="form-control" readonly />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Total Fee (₹)</label>
+            <input type="number" id="feeField" name="fee" class="form-control" readonly />
+          </div>
+
+          <!-- Intern/Placement -->
+          <div class="col-md-6">
+            <label class="form-label">Interested in Internship?</label>
+            <select name="internship" class="form-select" required>
+              <option value="" disabled selected>Select</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Placement Assistance</label>
+            <select name="placement" class="form-select" required>
+              <option value="" disabled selected>Select</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <!-- Extra -->
+          <div class="col-md-6">
+            <label class="form-label">Education Level</label>
+            <select name="education" class="form-select" required>
+              <option value="" disabled selected>Select</option>
+              <option>10th</option>
+              <option>12th</option>
+              <option>Graduate</option>
+              <option>Postgraduate</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Mode of Learning</label>
+            <select name="mode" class="form-select" required>
+              <option value="" disabled selected>Select</option>
+              <option>Online</option>
+              <option>Offline</option>
+              <option>Hybrid</option>
+            </select>
+          </div>
+
+          <!-- Upload -->
+          <div class="col-md-12">
+            <label class="form-label">Upload CV</label>
+            <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx" required />
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Additional Comments</label>
+            <textarea class="form-control" name="notes" rows="3" placeholder="Any additional info or queries..."></textarea>
+          </div>
+        </div>
+      <div class="col-12 text-end mt-3">
+        <button type="submit" class="btn btn-primary submit">Submit</button>
+        <button type="cancel" class="btn cancel"><a href="services.html">Cancel</a></button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+
+  const courseDetails = {
+    "Full Stack Development": { duration: 6, fee: 18000 },
+    "Data Science": { duration: 5, fee: 22000 },
+    "Python Programming": { duration: 3, fee: 12000 },
+    "Java with DSA": { duration: 4, fee: 16000 },
+    "Cloud Computing": { duration: 4, fee: 20000 }
+  };
+
+  document.getElementById("courseSelect").addEventListener("change", function () {
+    const selected = Array.from(this.selectedOptions).map(opt => opt.value);
+    let totalDuration = 0;
+    let totalFee = 0;
+
+    selected.forEach(course => {
+      if (courseDetails[course]) {
+        totalDuration += courseDetails[course].duration;
+        totalFee += courseDetails[course].fee;
+      }
+    });
+
+    document.getElementById("durationField").value = `${totalDuration} Months`;
+    document.getElementById("feeField").value = totalFee;
+  });
+
+  document.getElementById("enrollmentForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let valid = true;
+    const name = this.fullname.value.trim();
+    const email = this.email.value.trim();
+    const phone = this.phone.value.trim();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+
+    if (name === "") {
+      document.getElementById('nameError').textContent = "Name is required.";
+      valid = false;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      document.getElementById('emailError').textContent = "Enter a valid email.";
+      valid = false;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      document.getElementById('phoneError').textContent = "Enter a valid 10-digit phone.";
+      valid = false;
+    }
+
+    const selectedCourses = document.getElementById("courseSelect").selectedOptions;
+    if (selectedCourses.length === 0) {
+      document.getElementById("courseError").textContent = "Please select at least one course.";
+      valid = false;
+    }
+
+    if (valid) {
+      alert("Enrollment Submitted Successfully!");
+      this.reset();
+      document.getElementById("durationField").value = "";
+      document.getElementById("feeField").value = "";
+      bootstrap.Modal.getInstance(document.getElementById('enrollmentModal')).hide();
+    }
+  });
+
+  document.getElementById("enrollForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Student Enrollment form submitted successfully!");
+    this.reset();
+  });
+</script>
+
+  </section>
+ <footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p><b><i>Engineered for Excellence-</i></b></p>
+            <p>To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p>Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p>Tel: +91 73874 28839</p>
+            <p>+91 8208017009</p>
+            <p>Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+</body>
+</html>

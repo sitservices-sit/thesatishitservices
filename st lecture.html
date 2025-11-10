@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Software Testing Lectures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="sit.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .video-card {
+      border-radius: 10px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .video-card:hover {
+      transform: scale(1.02);
+    }
+    .video-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+  <div id="sideNav">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+      <h4>SIT Services</h4>
+      <span class="closebtn" onclick="closeNav()">×</span>
+    </div>
+
+    <div class="submenu-font">
+      <a href="About us.html">About Us</a>
+      <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+      <div class="submenu">
+        <a href="services.html">As Student</a>
+        <a href="services.html">As Instructor</a>
+      </div>
+      <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+    </div>
+
+    <div class="contact-info-sidenav">
+      <div><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</div>
+      <div><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+
+<button id="scrollToTop" title="Go to top">🡩</button>
+<script>
+  const btn = document.getElementById('scrollToTop');
+  let visible = false;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      if (!visible) {
+        btn.classList.add('show');
+        visible = true;
+      }
+    } else {
+      if (visible) {
+        btn.classList.remove('show');
+        visible = false;
+      }
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<div class="container my-5">
+  <h2 class="text-center text-primary mb-4" style="color:#0b03f9;font-size:30px;text-align: center;margin-top: -60px;">🎥 Software Testing Lectures</h2>
+  <div class="row g-4">
+
+    <!-- Lecture 1 -->
+    <div class="col-md-4">
+      <div class="card video-card p-2">
+        <video controls width="100%" height="200">
+          <source src="testing1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <p class="video-title">Lecture 1: Introduction to Software Testing</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lecture 2 -->
+    <div class="col-md-4">
+      <div class="card video-card p-2">
+        <video controls width="100%" height="200">
+          <source src="testing2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <p class="video-title">Lecture 2: Manual Testing Basics</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lecture 3 -->
+    <div class="col-md-4">
+      <div class="card video-card p-2">
+        <video controls width="100%" height="200">
+          <source src="testing3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <p class="video-title">Lecture 3: Test Cases, Bug Life Cycle</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lecture 4 -->
+    <div class="col-md-4">
+      <div class="card video-card p-2">
+        <video controls width="100%" height="200">
+          <source src="testing4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <p class="video-title">Lecture 4: Automation Testing Overview</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lecture 5 -->
+    <div class="col-md-4">
+      <div class="card video-card p-2">
+        <video controls width="100%" height="200">
+          <source src="testing5.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <p class="video-title">Lecture 5: Selenium Basics</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lecture 6 -->
+    <div class="col-md-4">
+      <div class="card video-card p-2">
+        <video controls width="100%" height="200">
+          <source src="testing6.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="card-body">
+          <p class="video-title">Lecture 6: Testing Tools & Frameworks</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="logo">
+    <h2 style="color: orange;">Satish IT Services</h2>
+    <p><b><i>Engineered for Excellence-</i></b></p>
+    <p>To empower students with quality knowledge and guidance, ensuring they <br> unearth and cultivate their true talents.</p>
+    <p><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+  </div>
+  <div>
+    <h3>Quick Links</h3>
+    <a href="#">Online Training</a>
+    <a href="#">Internships</a>
+    <a href="#">Corporate Training</a>
+    <a href="#">Placements</a>
+  </div>
+  <div>
+    <h3>Legal</h3>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms and Conditions</a>
+    <a href="#">Refund Policy</a>
+  </div>
+  <div>
+    <h3>Contact</h3>
+    <p>Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+    <p>Tel: +91 73874 28839</p>
+    <p>+91 8208017009</p>
+    <p>Email: sitservices89@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>

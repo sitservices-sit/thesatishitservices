@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logic Puzzles for Kids</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="sit.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #fce4ec, #e1f5fe);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .puzzle-card {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .btn-play{
+    background: linear-gradient(45deg, #03a9eb, #95d6f0, #049df0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border: 4px solid #3fc5f5;
+    border-radius: 30px;
+    font-weight: bold;
+  }
+
+   .btn-play:hover{
+  color: white;
+  font-weight: bold;
+  border: 7px solid #6ccef2;
+}
+  .btn-play:active {
+    border: 5px solid #0db1f7;
+  }
+
+    .puzzle-body {
+      display: none;
+      margin-top: 15px;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+<button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+<div class="container py-5">
+  <h2 class="text-center mb-4 box" style="color:#0b03f9;">💡 Tech Logic Puzzles to Power Your Brain! 💻</h2>
+  <div id="puzzleContainer" class="box1"></div>
+</div>
+
+<script>
+  const puzzles = [
+    {
+      question: "1. What is the binary of number 4?",
+      type: "select",
+      options: ["100", "101", "110"],
+      answer: "100"
+    },
+    {
+      question: "2. I help you see everything on a computer. Who am I?",
+      type: "select",
+      options: ["CPU", "Monitor", "Mouse"],
+      answer: "Monitor"
+    },
+    {
+      question: "3. What comes next? Start → Step 1 → Step 2 → ?",
+      type: "select",
+      options: ["End", "Step 3", "Start"],
+      answer: "Step 3"
+    },
+    {
+      question: "4. What will be the next output? Loop prints: A A A A ?",
+      type: "input",
+      answer: "A"
+    },
+    {
+      question: "5. Match the emoji to the device: 🖱️ = ?, 💻 = ?, 🎧 = ?",
+      type: "input",
+      answer: "mouse, laptop, headphone"
+    },
+    {
+      question: "6. In logic gates, 1 AND 1 = ?",
+      type: "select",
+      options: ["1", "0", "2"],
+      answer: "1"
+    },
+    {
+      question: "7. What does 'CPU' stand for?",
+      type: "input",
+      answer: "central processing unit"
+    },
+    {
+      question: "8. AI means giving brain power to...?",
+      type: "select",
+      options: ["Computers", "Birds", "Cars"],
+      answer: "Computers"
+    },
+    {
+      question: "9. Which of these is a text file extension?",
+      type: "select",
+      options: [".jpg", ".mp3", ".txt"],
+      answer: ".txt"
+    },
+    {
+      question: "10. What comes next? print(1), print(2), print(3), ?",
+      type: "input",
+      answer: "print(4)"
+    }
+  ];
+
+  const puzzleContainer = document.getElementById("puzzleContainer");
+
+  puzzles.forEach((puzzle, index) => {
+    const puzzleID = `puzzle${index}`;
+    const inputID = `input${index}`;
+    const resultID = `result${index}`;
+
+    const card = document.createElement("div");
+    card.className = "puzzle-card";
+
+    let inputField = "";
+    if (puzzle.type === "input") {
+      inputField = `<input type="text" id="${inputID}" class="form-control w-50" placeholder="Your answer">`;
+    } else if (puzzle.type === "select") {
+      inputField = `<select id="${inputID}" class="form-select w-50">
+        <option value="">Choose</option>
+        ${puzzle.options.map(opt => `<option value="${opt}">${opt}</option>`).join("")}
+      </select>`;
+    }
+
+    card.innerHTML = `
+      <h5>${puzzle.question}</h5>
+      <button class="btn btn-info btn-play" onclick="togglePuzzle('${puzzleID}')">Play Puzzle</button>
+      <div class="puzzle-body" id="${puzzleID}">
+        ${inputField}
+        <button class="btn btn-success mt-2" onclick="checkAnswer(${index})">Check Answer</button>
+        <p id="${resultID}" class="mt-2"></p>
+      </div>
+    `;
+    puzzleContainer.appendChild(card);
+  });
+
+  function togglePuzzle(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function checkAnswer(index) {
+    const input = document.getElementById(`input${index}`);
+    const userInput = input.value.trim().toLowerCase();
+    const correctAnswer = puzzles[index].answer.toLowerCase();
+    const result = document.getElementById(`result${index}`);
+
+    if (userInput === correctAnswer) {
+      result.innerHTML = "<span class='correct'>✅ Correct! You're learning tech fast!</span>";
+    } else {
+      result.innerHTML = "<span class='wrong'>❌ Not quite! Try again!</span>";
+    }
+  }
+</script>
+
+<script>
+  const allBoxes = document.querySelectorAll(".box, .box1, .box2");
+
+  function checkBoxes() {
+    const triggerBottom = window.innerHeight * 0.85;
+    allBoxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        box.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkBoxes);
+  window.addEventListener("load", checkBoxes);
+</script>
+
+<footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p style="color: white;"><b><i>Engineered for Excellence-</i></b></p>
+            <p style="color: white;">To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p style="color: white;"><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p style="color: white;">Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p style="color: white;">Tel: +91 73874 28839</p>
+            <p style="color: white;">+91 8208017009</p>
+            <p style="color: white;">Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+
+</body>
+</html>

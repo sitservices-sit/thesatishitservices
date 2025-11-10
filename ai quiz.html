@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="sit.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f5f9fc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .quiz-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.08);
+    }
+    .timer {
+      background: linear-gradient(45deg,#f80505, #ed0533, #f483a4, #f40545);
+      color: white;
+      padding: 10px 14px;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .score {
+      background: linear-gradient(45deg,#01692c,#78e49e,#01692c);
+      color: white;
+      padding: 10px 14px;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 6px;
+      margin: 20px;
+    }
+    .score:hover {
+      background: linear-gradient(45deg,#01692c,#78e49e,#01692c);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- SIDE NAV -->
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+  <div id="sideNav">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+      <h4>SIT Services</h4>
+      <span class="closebtn" onclick="closeNav()">×</span>
+    </div>
+
+    <div class="submenu-font">
+      <a href="About us.html">About Us</a>
+      <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+      <div class="submenu">
+        <a href="services.html">As Student</a>
+        <a href="services.html">As Instructor</a>
+      </div>
+    <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+    </div>
+
+    <div class="contact-info-sidenav">
+      <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+      <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL TOP -->
+<button id="scrollToTop" title="Go to top">🡩</button>
+
+<script>
+  const btn = document.getElementById('scrollToTop');
+  let visible = false;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      if (!visible) {
+        btn.classList.add('show');
+        visible = true;
+      }
+    } else {
+      if (visible) {
+        btn.classList.remove('show');
+        visible = false;
+      }
+    }
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<!-- QUIZ SECTION -->
+<div class="container">
+  <h2 class="text-center mb-4" style="color:#0b03f9;font-size:30px;">AI Quiz – 20 Questions</h2>
+  <div class="text-end mb-3">
+    <span class="timer">Time Left: <span id="timer">30:00</span></span>
+  </div>
+
+  <div id="quiz-container"></div>
+
+  <div class="text-center">
+    <button class="score" onclick="calculateScore()">Check Score</button>
+  </div>
+</div>
+
+<!-- QUIZ SCRIPT -->
+<script>
+  const questions = [
+    { q: "1. What does AI stand for?", a: "Artificial Intelligence", o: ["Automated Interface", "Artificial Intelligence", "Applied Informatics"] },
+    { q: "2. Which of these is a type of machine learning?", a: "Supervised Learning", o: ["Supervised Learning", "Binary Loading", "Data Structuring"] },
+    { q: "3. What is the goal of Turing Test?", a: "Test machine intelligence", o: ["Test CPU speed", "Test internet security", "Test machine intelligence"] },
+    { q: "4. Which algorithm is used for classification?", a: "Decision Tree", o: ["Bubble Sort", "Decision Tree", "Depth First Search"] },
+    { q: "5. NLP is a branch of AI that deals with:", a: "Text and language", o: ["Images", "Text and language", "Sound waves"] },
+    { q: "6. Which is not a type of AI?", a: "Logical AI", o: ["Reactive Machines", "Theory of Mind", "Logical AI"] },
+    { q: "7. What is reinforcement learning?", a: "Learning through rewards", o: ["Learning by storing", "Learning through rewards", "Learning from humans"] },
+    { q: "8. Which AI domain is used for voice assistants?", a: "Speech recognition", o: ["Pattern mining", "Speech recognition", "Database tuning"] },
+    { q: "9. What is the brain of AI called?", a: "Model", o: ["Bot", "Model", "Circuit"] },
+    { q: "10. Which of the following is used in deep learning?", a: "Neural Networks", o: ["Heap Trees", "Neural Networks", "Stack Trees"] },
+    { q: "11. CNN is used for:", a: "Image processing", o: ["Image processing", "Text generation", "Sorting arrays"] },
+    { q: "12. What is overfitting?", a: "Model too close to training data", o: ["Too few variables", "Model too close to training data", "Low accuracy"] },
+    { q: "13. AI that can outperform humans is called:", a: "Super AI", o: ["Strong AI", "Narrow AI", "Super AI"] },
+    { q: "14. Which file stores a trained ML model?", a: ".pkl", o: [".exe", ".pkl", ".html"] },
+    { q: "15. Which is not an AI library?", a: "Bootstrap", o: ["TensorFlow", "Keras", "Bootstrap"] },
+    { q: "16. The language mostly used for AI:", a: "Python", o: ["Python", "C#", "SQL"] },
+    { q: "17. Clustering is a type of:", a: "Unsupervised Learning", o: ["Supervised", "Unsupervised Learning", "Reinforcement"] },
+    { q: "18. What is the full form of GAN?", a: "Generative Adversarial Network", o: ["General AI Node", "Generative Adversarial Network", "Grid Activation Network"] },
+    { q: "19. What does a chatbot use?", a: "NLP", o: ["NLP", "Sorting", "Clustering"] },
+    { q: "20. AI in self-driving cars is used for:", a: "Object Detection", o: ["Object Detection", "Video Rendering", "Game Simulation"] },
+  ];
+
+  questions.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "quiz-box";
+    div.innerHTML = `
+      <h6>${item.q}</h6>
+      <select class="form-select quiz" data-answer="${item.a}">
+        <option value="">-- Select --</option>
+        ${item.o.map(o => `<option>${o}</option>`).join('')}
+      </select>`;
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("quiz-container").appendChild(div);
+    });
+  });
+
+  function calculateScore() {
+    const selects = document.querySelectorAll(".quiz");
+    let score = 0;
+    selects.forEach(s => { if (s.value === s.dataset.answer) score++; });
+    alert(`Your Score: ${score}/${selects.length}`);
+  }
+
+  let totalTime = 1800;
+  const timerDisplay = document.getElementById("timer");
+
+  const timerInterval = setInterval(() => {
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = totalTime % 60;
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    if (totalTime <= 0) {
+      clearInterval(timerInterval);
+      document.querySelectorAll('.quiz').forEach(el => el.disabled = true);
+      alert("⏰ Time's up! Auto-submitting your quiz.");
+      calculateScore();
+    }
+    totalTime--;
+  }, 1000);
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">
+    <h2 style="color: orange;">Satish IT Services</h2>
+    <p><b><i>Engineered for Excellence-</i></b></p>
+    <p>To empower students with quality knowledge and guidance,<br>ensuring they unearth and cultivate their true talents.</p>
+    <p><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+  </div>
+  <div>
+    <h3>Quick Links</h3>
+    <a href="#">Online Training</a>
+    <a href="#">Internships</a>
+    <a href="#">Corporate Training</a>
+    <a href="#">Placements</a>
+  </div>
+  <div>
+    <h3>Legal</h3>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms and Conditions</a>
+    <a href="#">Refund Policy</a>
+  </div>
+  <div>
+    <h3>Contact</h3>
+    <p>Phase 2, 1st floor, Office No. 108, Mayur Trade Center,<br>Bus stop of Chichwad Station, Maharashtra-411019</p>
+    <p>Tel: +91 73874 28839</p>
+    <p>+91 8208017009</p>
+    <p>Email: sitservices89@gmail.com</p>
+  </div>
+</footer>
+
+</body>
+</html>

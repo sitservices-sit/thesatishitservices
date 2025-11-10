@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Satish IT Services</title>
+    <link rel="stylesheet" href="sit.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+     <style>
+       body {
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    box-sizing: border-box;
+} 
+
+   @media (max-width: 600px) {
+
+  .instructor-h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+
+  .card-img-top {
+    height: 260px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .text-muted {
+    font-size: 16px;
+  }
+
+ .slideshow-container {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .cards-wrapper-2 {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cards-wrapper-2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .instructor-card {  
+    width:100%;
+    height:100%;
+    scroll-snap-align: start;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    width: 30px;
+    height: 50px;
+    font-size: 1.5rem;
+    top: 45%;
+    transform: translateY(-50%);
+  }
+}
+
+    .services h1 {
+      text-align: center;
+      font-size: 3em;
+      color: black;
+      margin: 40px 20px;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 100px;
+      padding: 0 20px;
+    }
+
+    .card {
+      width: 250px;
+      height: 330px;
+      perspective: 1000px;
+      cursor: pointer;
+      color:white;
+      border: none;
+      outline: none;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  will-change: transform;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  text-align: center;
+}
+
+    .card-front img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .card-front h2{
+      font-size: 23px;
+      color: #fdad01;
+    }
+    .card-front p{
+      font-size: 20px;
+      color:black;
+    }
+
+    .card-front {
+      background: white;
+    }
+
+    .card-back {
+      background: white;
+      transform: rotateY(180deg);
+      justify-content: center;
+    }
+
+    .card-back p {
+      font-size: 20px;
+      color:black;
+    }
+
+    
+    .services {
+  margin-top:-30px; 
+  margin-bottom: 60px; 
+  padding: 20px;
+}
+
+    .highlight {
+      color: #0b03f9;
+      font-weight: bold;
+      font-size:30px;
+    }
+    .main-title {
+      font-weight: 700;
+      font-size: 27px;
+      color: black;
+    }
+    .desc {
+      color: #555;
+      font-size: 19px;
+      margin-bottom: 20px;
+    }
+    
+    .join-now a{
+      background: linear-gradient(45deg,#6488f4, #3500f2, #3d03eb, #a805f4);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      font-weight: bold;
+      font-size: 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .join-now a:hover {
+     background: linear-gradient(45deg, #3d03eb, #6488f4, #3500f2);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .feature-card {
+      background: #f9f9f9;
+      padding: 14px;
+      border-radius: 10px;
+      display: flex;
+      font-size: 19px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .feature-icon {
+      background: #bd77e8;
+      padding: 7px;
+      border-radius: 50%;
+    }
+    .instructor-img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
+
+    .girl-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .mentor-section {
+      padding: 60px 0;
+    }
+    .mentor-img {
+      max-width: 100%;
+    }
+    .mentor-content h2 {
+      font-size: 30px;
+      color:#0b03f9;
+    }
+    
+    .mentor-content p {
+      color: #555;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+    .feature-list {
+      list-style: none;
+      font-size: 23px;
+      padding: 0;
+    }
+    .feature-list li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    .feature-list li::before {
+      content: '✔';
+      color: green;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .instructor-h2 {
+      font-weight: 700;
+      color:#050380;
+      font-size: 40px;
+    }
+    .slideshow-container {
+  max-width: 100%;
+  margin: 1rem auto;
+  position: relative;
+  overflow-x: hidden; 
+}
+
+.cards-wrapper-2 {
+  display: flex;
+  gap: 11px;
+  scroll-behavior: smooth;
+  padding: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+.cards-wrapper-2::-webkit-scrollbar {
+  display: none; 
+}
+
+
+.instructor-card {
+  flex-shrink: 0;
+  width: 280px;
+  height: 470px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#prevBtn {
+  left: 3px;
+}
+#nextBtn {
+  right: 3px;
+}
+
+    .card-img-top {
+  height: 340px; 
+  object-fit: cover;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+    .position-relative {
+      position: relative;
+    }
+
+    #prevBtn, #nextBtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.85);
+      border: none;
+      font-size: 2rem;
+      width: 40px;
+      height: 60px;
+      color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+      user-select: none;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      transition: background-color 0.2s ease;
+    }
+    #prevBtn:hover, #nextBtn:hover {
+      background-color: rgba(255, 255, 255, 1);
+      color: #007bff;
+    }
+   
+    .heart-icon {
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+      color: rgb(241, 7, 7);
+    }
+    .heart-icon.bi-heart {
+      color: #999;
+    }
+
+    .card-title{
+      font-size: 23px;
+      color:rgb(2, 3, 78);
+    }
+    .text-muted{
+      font-size: 19px;
+    } 
+  </style>
+</head>
+  <body>
+    <header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+  
+  <button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  
+  <section class="services">
+     <h1 class="box delay-1" style="color:#0b03f9;font-weight: bold;" id="#student">Our Services</h1>
+  <div class="card-wrapper">
+    <div class="card" onclick="flipCard(this)" data-aos="zoom-in">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="offline-training.jpg" alt="Offline Training">
+          <h2 style="font-weight: bold;">Offline Training</h2>
+          <p>Classroom-based training with expert instructors.</p>
+        </div>
+        <div class="card-back">
+          <p>Hands-on learning in our centers with real-time practice, personalized guidance, and live mentor interaction.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)" data-aos="zoom-in" data-aos-delay="100">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="online-training.jpg" alt="Online Training">
+          <h2 style="font-weight: bold;">Online Training</h2>
+          <p>Live virtual classes with recorded sessions and support.</p>
+        </div>
+        <div class="card-back">
+          <p>Attend sessions from anywhere with expert trainers, downloadable resources, and flexible timing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)" data-aos="zoom-in" data-aos-delay="200">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="placement support.jpg" alt="Placement">
+          <h2 style="font-weight: bold;">Placement Support</h2>
+          <p>Resume, referrals, and job interview help.</p>
+        </div>
+        <div class="card-back">
+          <p>Get hired faster with our placement services. We connect you to top companies with expert career coaching.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)" data-aos="zoom-in" data-aos-delay="300">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="interview.jpg" alt="Mock Interview">
+          <h2 style="font-weight: bold;">Mock Interviews</h2>
+          <p>Simulate real interviews with feedback.</p>
+        </div>
+        <div class="card-back">
+          <p>Practice with industry experts in technical and HR mock sessions to boost your confidence and skills.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)" data-aos="zoom-in" data-aos-delay="400">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="corporate-training.jpg" alt="Corporate Training">
+          <h2 style="font-weight: bold;">Corporate Training</h2>
+          <p>Customized programs for organizations.</p>
+        </div>
+        <div class="card-back">
+          <p>Empower your teams with tailored programs in technology, leadership, and productivity with ROI-driven outcomes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)" data-aos="zoom-in" data-aos-delay="500">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="content delivery.jpg" alt="Course Content Delivery">
+      <h2 style="font-weight: bold;">Content Delivery</h2>
+      <p>Engaging video, PDFs, quizzes & more.</p>
+    </div>
+    <div class="card-back">
+      <p>Deliver multimedia lessons, notes, and interactive assessments that adapt to student progress and pace.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card" onclick="flipCard(this)" data-aos="zoom-in" data-aos-delay="600">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="progress tracking.jpg" alt="Progress Tracking">
+      <h2 style="font-weight: bold;">Progress Tracking</h2>
+      <p>Monitor student activity & performance.</p>
+    </div>
+    <div class="card-back">
+      <p>Track student performance with real-time dashboards, completion stats, and insightful analytics.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card" onclick="flipCard(this)" data-aos="zoom-in" data-aos-delay="700">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="certificate.jpg" alt="Certificates">
+      <h2 style="font-weight: bold;">Certificates</h2>
+      <p>Auto-generate certificates on course completion.</p>
+    </div>
+    <div class="card-back">
+      <p>Motivate learners with customizable certificates and badges for each completed milestone or course.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+
+  let cards = document.querySelectorAll('.card');
+  let currentIndex = 0;
+  let flipDelay = 3000; 
+
+  function autoFlipCards() {
+    if (cards.length === 0) return;
+
+    cards.forEach(card => card.classList.remove('flipped'));
+
+    cards[currentIndex].classList.add('flipped');
+
+    setTimeout(() => {
+      cards[currentIndex].classList.remove('flipped');
+      currentIndex = (currentIndex + 1) % cards.length;
+      autoFlipCards();
+    }, flipDelay);
+  }
+
+  window.onload = () => {
+    cards = document.querySelectorAll('.card'); 
+    autoFlipCards();
+  };
+
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+      box.classList.add('visible');
+    });
+  });
+</script>
+  </section>
+
+<div class="container py-5">
+  <div class="row align-items-center">
+    <!-- Left Content -->
+    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+      <p class="highlight box1 delay-1">What's New</p>
+      <h1 class="main-title box2 delay-2">Master the skills to drive your career</h1>
+      <p class="desc box2 delay-3">
+        Get certified, master modern tech skills, and level up your career — whether you're starting out or a seasoned pro. 95% of LMS users say our expert-led content improved their skills significantly.
+      </p>
+      <button class="btn join-now mb-4 box delay-4" id="c-scale"><a href="Enrollment Form.html">Join Now</a></button>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="feature-card box2 delay-1" id="c-scale">
+            <div class="feature-icon">👨‍🏫</div>
+            <div>Stay motivated with engaging instructors</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="feature-card box1 delay-2" id="c-scale">
+            <div class="feature-icon">📚</div>
+            <div>Access interactive course content 24/7</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="feature-card box2 delay-3" id="c-scale">
+            <div class="feature-icon">📈</div>
+            <div>Track your progress with smart dashboards</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="feature-card box1 delay-4" id="c-scale">
+            <div class="feature-icon">🎓</div>
+            <div>Get certified with 100+ certification courses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Image -->
+    <div class="col-lg-6 col-md-12 text-center">
+      <img src="learning.png" alt="Girl with book" class="girl-img box1 delay-1"/>
+    </div>
+  </div>
+</div>
+
+<section class="mentor-section">
+  <div class="container">
+   <div class="row d-flex mentor-row">
+  <div class="col-md-6 mentor-content">
+    <h2 class="box1 delay-1">Want to share your knowledge?</h2><br>
+    <h3 class="box2 delay-2"><strong>Join us as an Instructor</strong></h3>
+    <p class="box2 delay-3">High-definition video is video of higher resolution...</p>
+    <ul class="feature-list">
+      <li class="box1 delay-1">Access Your Class anywhere</li>
+      <li class="box1 delay-2">Flexible Course Plan</li>
+      <li class="box1 delay-3">Quality Assurance</li>
+      <li class="box1 delay-4">The Most World Class Instructors</li>
+    </ul>
+    <button class="btn join-now mb-4 box delay-4" id="c-scale">
+      <a href="Instructor Form.html">Join Now</a>
+    </button>
+  </div>
+
+  <div class="col-md-6 mentor-image text-center">
+    <img src="instructor.png" alt="Instructor Image" class="img-fluid box2 delay-2" />
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+ <section class="py-5 text-center bg-white rounded shadow-sm mx-3 mx-md-auto" style="max-width:1225px;">
+    <h2 class="mb-2 box delay-1 instructor-h2" style="color:#0b03f9;">Our Instructors</h2>
+
+    <div class="slideshow-container box delay-2">
+
+      <div class="cards-wrapper-2" id="cardsWrapper-2">
+        <!-- 8 Cards -->
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor1.jpg" class="card-img-top rounded-top" alt="Shital Patil" />            
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Shital Patil</h5>
+            <small class="text-muted">Web Developer</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-danger me-1"></i>20 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor5.jpg" class="card-img-top rounded-top" alt="Rohan Kumar" />
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Rohan Kumar</h5>
+            <small class=" text-muted">PHP Expert</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-warning me-1"></i>30 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor2.jpg" class="card-img-top rounded-top" alt="Pratiksha Gawade" />
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Pratiksha Gawade</h5>
+            <small class="text-muted">Web Developer</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-primary me-1"></i>50 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor6.jpg" class="card-img-top rounded-top" alt="Vishwa Suryawanshi" />
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Vishwa Suryawanshi</h5>
+            <small class="text-muted">Lead Designer</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-warning me-1"></i>50 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor3.jpg" class="card-img-top rounded-top" alt="Sneha Tondare" />
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Sneha Tondare</h5>
+            <small class="text-muted">Java Developer</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-info me-1"></i>40 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor7.jpg" class="card-img-top rounded-top" alt="Raj Kumar" />
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Raj Kumar</h5>
+            <small class="text-muted">Data Scientist</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-success me-1"></i>45 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor4.jpg" class="card-img-top rounded-top" alt="Tanushri suryawanshi" />
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Tanushri suryawanshi</h5>
+            <small class="text-muted">UI/UX Designer</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-primary me-1"></i>25 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card instructor-card">
+          <div class="position-relative">
+            <img src="instructor8.jpg" class="card-img-top rounded-top" alt="Ashok KulKarni" />
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title mb-0">Ashok KulKarni</h5>
+            <small class="text-muted">Marketing Expert</small>
+            <div class="mt-2 small d-flex justify-content-between align-items-center px-3">
+              <span style="color:black;font-weight: bold;"><i class="bi bi-people-fill text-danger me-1"></i>55 Students</span>
+              <i class="bi bi-heart heart-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav buttons -->
+      <button id="prevBtn" aria-label="Previous instructors">&#10094;</button>
+      <button id="nextBtn" aria-label="Next instructors">&#10095;</button>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const wrapper = document.getElementById('cardsWrapper-2');
+      const cards = wrapper.children;
+      const totalCards = cards.length;
+
+      let cardsToShow = 4;
+
+      function updateCardsToShow() {
+        if(window.innerWidth < 576) {
+          cardsToShow = 1;
+        } else if(window.innerWidth < 992) {
+          cardsToShow = 2;
+        } else {
+          cardsToShow = 4;
+        }
+      }
+
+      updateCardsToShow();
+
+      window.addEventListener('resize', () => {
+        updateCardsToShow();
+        showCards(currentIndex);
+      });
+
+      function getCardWidth() {
+
+        const style = getComputedStyle(cards[0]);
+        const width = cards[0].offsetWidth;
+        const marginRight = parseInt(style.marginRight) || 20;
+        return width + marginRight;
+      }
+
+      let currentIndex = 0;
+      let cardWidth = getCardWidth();
+
+      function showCards(index) {
+        if (index < 0) index = totalCards - cardsToShow;
+        if (index > totalCards - cardsToShow) index = 0;
+
+        currentIndex = index;
+        cardWidth = getCardWidth();
+
+        wrapper.scrollTo({
+          left: cardWidth * currentIndex,
+          behavior: 'smooth',
+        });
+      }
+
+      let slideInterval = setInterval(() => {
+        showCards(currentIndex + cardsToShow);
+      }, 4000);
+
+      // Prev button
+      document.getElementById('prevBtn').addEventListener('click', () => {
+        clearInterval(slideInterval);
+        showCards(currentIndex - cardsToShow);
+        slideInterval = setInterval(() => {
+          showCards(currentIndex + cardsToShow);
+        }, 4000);
+      });
+
+      // Next button
+      document.getElementById('nextBtn').addEventListener('click', () => {
+        clearInterval(slideInterval);
+        showCards(currentIndex + cardsToShow);
+        slideInterval = setInterval(() => {
+          showCards(currentIndex + cardsToShow);
+        }, 4000);
+      });
+
+     
+
+
+  document.querySelectorAll('.heart-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      icon.classList.toggle('bi-heart');
+      icon.classList.toggle('bi-heart-fill');
+      icon.classList.toggle('text-danger');
+    });
+  });
+
+      showCards(0);
+    })();
+
+
+  const allBoxes = document.querySelectorAll(".box, .box1, .box2");
+
+  function checkBoxes() {
+    const triggerBottom = window.innerHeight * 0.85;
+    allBoxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        box.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkBoxes);
+  window.addEventListener("load", checkBoxes);
+  </script>
+
+
+  <footer>
+    <div class="logo">
+        <h2 style="color: orange;">Satish IT Services</h2>
+        <p><b><i>Engineered for Excellence-</i></b></p>
+        <p>To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+        <p><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+    </div>
+    <div>
+        <h3>Quick Links</h3>
+        <a href="#">Online Training</a>
+        <a href="#">Internships</a>
+        <a href="#">Corporate Training</a>
+        <a href="#">Placements</a>
+    </div>
+    <div>
+        <h3>Legal</h3>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Refund Policy</a>
+    </div>
+    <div>
+        <h3>Contact</h3>
+        <p>Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+        <p>Tel: +91 73874 28839</p>
+        <p>+91 8208017009</p>
+        <p>Email: sitservices89@gmail.com</p>
+    </div>
+</footer>
+</body>
+</html>

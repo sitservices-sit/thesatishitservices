@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Satish IT Services</title>
+    <link rel="stylesheet" href="sit.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+</head>
+<body>
+  <header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+
+<section class="edu-banner banner-section gradient-section">
+
+  <div class="floating-shape"></div>
+  <div class="floating-shape"></div>
+  <div class="floating-shape"></div>
+  <div class="floating-shape"></div>
+  <div class="floating-shape"></div>
+  <div class="floating-shape"></div>
+  <div class="floating-shape"></div>
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 banner-text">
+        <p class="bold box">Elevate Your Learning</p>
+<h1 class="box">
+  Learn, <span class="highlight-orange">Grow</span>, 
+  <span class="highlight-green">Achieve</span> And 
+  <span class="highlight-black">Succeed</span>
+</h1>
+
+        <p class="mt-3 box2" style="font-size: 22px;" id="Text2">
+
+        </p>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+              const textEl = document.getElementById('Text2');
+              const fullText = `Welcome to SIT, where learning knows no bounds. Whether you're a student, professional, or lifelong learner...`;
+        
+              setTimeout(() => {
+                textEl.classList.add('active');
+        
+                typeText(textEl, fullText, 0, 50);
+              }, 100);
+        
+
+              function typeText(element, text, index, interval) {
+                if (index < text.length) {
+                  element.textContent += text.charAt(index);
+                  index++;
+                  setTimeout(() => typeText(element, text, index, interval), interval);
+                }
+              }
+            });
+          </script>
+
+        <div class="mt-4">
+          <a href="Contact us.html" class="button-1 box1">Join Now</a>
+          <a href="#top-courses" class="button-2 box2">Top Courses</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="banner-wrapper box">
+          <div class="dashed-circle"></div>
+          <div class="filled-circle"></div>
+          <div class="girl-img-wrapper">
+            <img src="girl with book.png" alt="Girl with books" class="girl-img" />
+          </div>
+          <div class="info-box students-box">
+            <img src="https://img.icons8.com/ios-filled/50/education.png" alt="Students Icon"/>
+            <div><span id="studentCount">0</span>+<br>Students</div>
+          </div>
+          <div class="info-box instructors-box">
+            <img src="https://img.icons8.com/ios-filled/50/conference.png" alt="Instructor Icon"/>
+            <div><span id="instructorCount">0</span>+<br>Instructors</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row info-row text-white mt-3 gy-4">
+      <div class="col-md-3">
+        <div class="feature-box box1">
+          <i class="bi bi-journal-bookmark-fill"></i>
+          <strong>50,000 online courses</strong>
+          <small>Fresh topics variety</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="feature-box box2">
+          <i class="bi bi-person-check-fill"></i>
+          <strong>Expert instruction</strong>
+          <small>Find the right instructor</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="feature-box box1">
+          <i class="bi bi-clock-history"></i>
+          <strong>Lifetime access</strong>
+          <small>Learn on your schedule</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="feature-box box2">
+          <i class="bi bi-award-fill"></i>
+          <strong>Get Certificate</strong>
+          <small>When courses complete</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function animateCount(id, end, duration) {
+      let element = document.getElementById(id);
+      let start = 0;
+      let increment = Math.ceil(end / (duration / 20));
+      let interval = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          element.innerText = end;
+          clearInterval(interval);
+        } else {
+          element.innerText = start;
+        }
+      }, 20);
+    }
+    window.addEventListener("DOMContentLoaded", () => {
+      animateCount("studentCount", 1000, 2000);
+      animateCount("instructorCount", 100, 2000);
+    });
+  </script>
+</section>
+
+<section>
+  <button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</section>
+
+<section class="course-section" id="cs">
+        <div class="container">
+            <h3 style="color:#0b03f9;font-size:30px;font-weight: bold;" class="box1 delay-1" id="top-courses">Top Courses</h3>
+            <div class="courses">
+    <div class="box delay-1" id="course-card">    
+        <span class="badge-label">Top Enrolled</span>           
+        <img src="full stack web dev.jpg" alt="Web Development" class="course-img">
+        <p class="course-title">Full Stack Web Development</p>
+        <div class="course-subtopics">
+            <span class="mini-tag">HTML</span>
+            <span class="mini-tag">CSS</span>
+            <span class="mini-tag">JavaScript</span>
+            <span class="mini-tag">SQL</span>
+        </div>
+        <p class="course-duration">Duration: ⏰ 6 Months</p>
+        <p class="price">Cost: ₹12,000.00</p>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <button class="buy-now"><a href="Enrollment Form.html">Enroll Now</a></button>
+       <button class="buy-now" id="know-more"><a href="web dev details.html">Know More</a></button>
+      </div>
+    </div>
+
+    <div class="box delay-2" id="course-card">
+        <span class="badge-label">Trending</span>
+        <img src="java2.jpg" alt="Java" class="course-img">
+        <p class="course-title">Java Full Stack</p>
+        <div class="course-subtopics">
+            <span class="mini-tag">Core Java</span>
+            <span class="mini-tag">JDBC</span>
+            <span class="mini-tag">Spring Boot</span>
+        </div>
+        <p class="course-duration">Duration: ⏰ 3 Months</p>
+        <p class="price">Cost: ₹25,000.00</p>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <button class="buy-now"><a href="Enrollment Form.html">Enroll Now</a></button>
+       <button class="buy-now" id="know-more"><a href="java full-stack details.html">Know More</a></button>
+      </div>
+    </div>
+
+    <div class="box delay-3" id="course-card">    
+        <span class="badge-label">Popular</span>            
+        <img src="python2.jpg" alt="Python" class="course-img">
+        <p class="course-title">Python Full Stack</p>
+        <div class="course-subtopics">
+            <span class="mini-tag">Python</span>
+            <span class="mini-tag">Django</span>
+            <span class="mini-tag">HTML</span>
+        </div>
+        <p class="course-duration">Duration: ⏰ 6 Months</p>
+        <p class="price">Cost: ₹25,000.00</p>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <button class="buy-now"><a href="Enrollment Form.html">Enroll Now</a></button>
+       <button class="buy-now" id="know-more"><a href="pyfullstack-details.html">Know More</a></button>
+      </div>
+    </div>
+
+    <div class="box delay-4" id="course-card">  
+        <span class="badge-label">#1 Course</span>              
+        <img src="ai.jpg" alt="AI" class="course-img">
+        <p class="course-title">Artificial Intelligence</p>
+        <div class="course-subtopics">
+            <span class="mini-tag">Deep Learning</span>
+            <span class="mini-tag">NLP</span>
+            <span class="mini-tag">Python</span>
+        </div>
+        <p class="course-duration">Duration: ⏰ 6 Months</p>
+        <p class="price">Cost: ₹30,000.00</p>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <button class="buy-now"><a href="Enrollment Form.html">Enroll Now</a></button>
+       <button class="buy-now" id="know-more"><a href="ai-details.html">Know More</a></button>
+      </div>
+    </div>
+</div>
+
+          <a href="All courses.html">
+            <button class="button box2 delay-3">
+              <span class="text">All Courses</span>
+                <span class="svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="20"
+                    viewBox="0 0 38 15"
+                    fill="none"
+                  >
+                    <path
+                      fill="white"
+                      d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"
+                    ></path>
+                  </svg>
+                </span>
+            </button>
+          </a>
+            
+
+  <h3 style="color:#0b03f9;font-weight: bold;font-size:30px;text-align: center;margin-top: 50px;" class="box2 delay-2">Our trainees working with MNC's</h3>
+<div class="slideshow-wrapper box delay-3">
+  <div class="slideshow-track" id="slideshowTrack">
+   
+    <div class="slide-group">
+      <div class="company-card"><img src="hcl.png" alt="HCL"></div>
+      <div class="company-card"><img src="infosys.png" alt="Infosys"></div>
+      <div class="company-card"><img src="tcs.png" alt="TCS"></div>
+    </div>
+
+    <div class="slide-group">
+      <div class="company-card"><img src="capegemini.png" alt="Capgemini"></div>
+      <div class="company-card"><img src="amadoc.png" alt="Amdocs"></div>
+      <div class="company-card"><img src="wipro.png" alt="Wipro"></div>
+    </div>
+ 
+    <div class="slide-group">
+      <div class="company-card"><img src="proximo.png" alt="PROXIMO"></div>
+      <div class="company-card"><img src="volka.png" alt="volka"></div>
+      <div class="company-card"><img src="cognizant.png" alt="Cognizant"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const track = document.getElementById('slideshowTrack');
+  const groups = document.querySelectorAll('.slide-group');
+  let index = 0;
+
+  setInterval(() => {
+    index++;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+  
+    if (index === groups.length - 1) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(0)';
+        index = 0;
+        setTimeout(() => {
+          track.style.transition = 'transform 2s ease-in-out';
+        }, 30);
+      }, 2000); 
+    }
+  }, 3000);
+</script><br><br>
+
+  <div class="glimpse">
+    <h3 class="box2 delay-2" style="color:#0b03f9;font-weight: bold;">Meet Out Live Course Glimpse</h3><br>
+    <img src="glimse.jpeg" height="470px" width="100%" class="box delay-1" id="c-scale" style="border-radius: 20px;">
+  </div>
+
+  <div class="learn-all">
+    <h3 class="box1 delay-3" style="color:#0b03f9;font-weight: bold;">Learn all major technologies with us</h3><br>
+
+ <div class="circle-wrapper">
+    <h3 class="center-text">Major Technologies</h3>
+
+    <div class="circle-container">
+    <div class="tech-icon" style="--angle: 0deg;"><img src="https://img.icons8.com/color/96/html-5--v1.png" /><div class="tooltip-box">HTML</div></div>
+    <div class="tech-icon" style="--angle: 45deg;"><img src="https://img.icons8.com/color/96/css3.png" /><div class="tooltip-box">CSS</div></div>
+    <div class="tech-icon" style="--angle: 90deg;"><img src="https://img.icons8.com/color/96/javascript.png" /><div class="tooltip-box">JavaScript</div></div>
+    <div class="tech-icon" style="--angle: 135deg;"><img src="https://img.icons8.com/color/96/bootstrap.png" /><div class="tooltip-box">Bootstrap</div></div>
+    <div class="tech-icon" style="--angle: 180deg;"><img src="https://img.icons8.com/officel/96/react.png" /><div class="tooltip-box">React</div></div>
+    <div class="tech-icon" style="--angle: 225deg;"><img src="https://img.icons8.com/color/96/nodejs.png" /><div class="tooltip-box">Node.js</div></div>
+    <div class="tech-icon" style="--angle: 270deg;"><img src="https://img.icons8.com/color/96/git.png" /><div class="tooltip-box">Git</div></div>
+    <div class="tech-icon" style="--angle: 315deg;"><img src="https://img.icons8.com/color/96/python.png" /><div class="tooltip-box">Python</div></div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+  <section class="achievement-section">
+  <h2 style="color:#0b03f9; font-size: 35px;margin-bottom:30px; font-weight: bold; text-align: center;" class="box delay-1">Our Achievement</h2>
+  <div class="achievement-box">
+    <div class="box delay-1">
+      <h3>5,000+</h3>
+      <p>Active Students</p>
+    </div>
+    <div class="box delay-1">
+      <h3>12+</h3>
+      <p>Total Courses</p>
+    </div>
+    <div class="box delay-1">
+      <h3>2+</h3>
+      <p>Instructors</p>
+    </div>
+    <div class="box delay-1">
+      <h3>100%</h3>
+      <p>Satisfaction rate</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container py-5">
+  <div class="row align-items-center">
+    <!-- Left Content -->
+    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+      <p class="highlight box1 delay-1">What's New</p>
+      <h1 class="main-title box2 delay-2">Master the skills to drive your career</h1>
+      <p class="desc box2 delay-3">
+        Get certified, master modern tech skills, and level up your career — whether you're starting out or a seasoned pro. 95% of LMS users say our expert-led content improved their skills significantly.
+      </p>
+      <button class="btn join-now mb-4 box delay-4" id="c-scale"><a href="Enrollment Form.html">Join Now</a></button>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="feature-card box2 delay-1" id="c-scale">
+            <div class="feature-icon">👨‍🏫</div>
+            <div>Stay motivated with engaging instructors</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="feature-card box1 delay-2" id="c-scale">
+            <div class="feature-icon">📚</div>
+            <div>Access interactive course content 24/7</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="feature-card box2 delay-3" id="c-scale">
+            <div class="feature-icon">📈</div>
+            <div>Track your progress with smart dashboards</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="feature-card box1 delay-4" id="c-scale">
+            <div class="feature-icon">🎓</div>
+            <div>Get certified with 100+ certification courses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 text-center">
+      <img src="learning.png" alt="Girl with book" class="girl-img box1 delay-1"/>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="mentor-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="instructor.png" alt="Instructor Illustration" class="instructor-img box1 delay-2">
+   </div>
+
+      <div class="col-md-6 mentor-content">
+        <h2 class="box1 delay-1">Want to share your knowledge?</h2><br><h3 class="box2 delay-2"><strong>Join us a Instructor</strong></h3>
+        <p class="box2 delay-3">High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.</p>
+          <div class="text">
+            <ul class="feature-list">
+          <li class="box1 delay-1">Access Your Class anywhere</li>
+          <li class="box1 delay-2">Flexible Course Plan</li>
+          <li class="box1 delay-3">Quality Assurance</li>
+          <li class="box1 delay-4">The Most World Class Instructors</li>
+        </ul>
+          </div>
+        </div>
+        <button class="btn join-now mb-4 box delay-4 join-btn-left" id="c-scale"><a href="Instructor Form.html">Join Now</a></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3 style="color:#0b03f9;font-weight: bold;font-size:30px;text-align: center;" class="box2 delay-2">
+    Student Feedback
+  </h3>
+
+  <div class="carousel-wrapper">
+    <button class="arrow-btn" onclick="prevSlide()">&#10094;</button>
+
+    <div class="carousel-container" id="carouselContainer">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="feedback-card">
+          <blockquote>
+            “ The content was comprehensive and the feedback I received helped me improve a lot. Thank you Satish IT Services!”
+          </blockquote>
+          <div class="author">- Aishwarya Pawar</div>
+        </div>
+
+        <div class="feedback-card">
+          <blockquote>
+            “Dear Shital Ma’am, your teaching is so impactful and easy to understand. I’m grateful for the lessons you've taught me and the career direction you provided.”
+          </blockquote>
+          <div class="author">- ShriKrishna Shinde</div>
+        </div>
+
+        <div class="feedback-card">
+          <blockquote>
+            “The course was rich in practical exposure. The online content was easy to follow, and I got to work on real-time projects. Great support from the SIT team!”
+          </blockquote>
+          <div class="author">- Rohit Patil</div>
+        </div>
+
+        <div class="feedback-card">
+          <blockquote>
+            “The instructors are highly knowledgeable, incredibly approachable and dedicated to ensuring that every student understands the material thoroughly.”
+          </blockquote>
+          <div class="author">- Rutuja Kulkarni</div>
+        </div>
+
+        <div class="feedback-card">
+          <blockquote>
+            “My experience with Satish IT Services is going excellent. The mentors are highly skilled and effective in their teaching, making complex concepts easy to understand.”
+          </blockquote>
+          <div class="author">- Vishwa Kumar</div>
+        </div>
+
+        <div class="feedback-card">
+          <blockquote>
+            “Superb experience, real-world knowledge shared. The mentors make sure each student gets personalized attention and constant encouragement.”
+          </blockquote>
+          <div class="author">- Krishna Shinde</div>
+        </div>
+      </div>
+
+      <div class="dot-container" id="dotContainer"></div>
+    </div>
+
+    <button class="arrow-btn" onclick="nextSlide()">&#10095;</button>
+  </div>
+
+  <script>
+    const carouselTrackEl = document.getElementById("carouselTrack");
+    const container = document.getElementById("carouselContainer");
+    const cards = document.querySelectorAll(".feedback-card");
+    const dotContainer = document.getElementById("dotContainer");
+
+    let slideIndex = 0;
+    let interval;
+    let cardPerSlide = window.innerWidth < 768 ? 1 : 3;
+    let totalSlides = Math.ceil(cards.length / cardPerSlide);
+
+    function updateTrack() {
+      const slideWidth = container.offsetWidth;
+      carouselTrackEl.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+      updateDots();
+    }
+
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      updateTrack();
+    }
+
+    function prevSlide() {
+      slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+      updateTrack();
+    }
+
+    function createDots() {
+      dotContainer.innerHTML = "";
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          slideIndex = i;
+          updateTrack();
+          resetInterval();
+        });
+        dotContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      document.querySelectorAll(".dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === slideIndex);
+      });
+    }
+
+    function startAutoSlide() {
+      interval = setInterval(nextSlide, 4000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(interval);
+    }
+
+    function resetInterval() {
+      stopAutoSlide();
+      startAutoSlide();
+    }
+
+    container.addEventListener("mouseenter", stopAutoSlide);
+    container.addEventListener("mouseleave", startAutoSlide);
+
+    window.addEventListener("resize", () => {
+      cardPerSlide = window.innerWidth < 768 ? 1 : 3;
+      totalSlides = Math.ceil(cards.length / cardPerSlide);
+      slideIndex = 0;
+      createDots();
+      updateTrack();
+    });
+
+    window.onload = () => {
+      createDots();
+      updateTrack();
+      startAutoSlide();
+    };
+  </script>
+</section>
+
+<script>
+  const allBoxes = document.querySelectorAll(".box, .box1, .box2");
+
+  function checkBoxes() {
+    const triggerBottom = window.innerHeight * 0.85;
+    allBoxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        box.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkBoxes);
+  window.addEventListener("load", checkBoxes);
+</script>
+
+    <footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p style="color: white;"><b><i>Engineered for Excellence-</i></b></p>
+            <p style="color: white;">To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p style="color: white;"><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p style="color: white;">Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p style="color: white;">Tel: +91 73874 28839</p>
+            <p style="color: white;">+91 8208017009</p>
+            <p style="color: white;">Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+</body>
+</html>
