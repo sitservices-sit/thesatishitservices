@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Study Material-SIT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="sit.css">
+  <style>
+    body {
+      background-color: #f5f9fc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+    body, html {
+  overflow-x: hidden;
+}
+    .nav-item {
+      font-size: 25px;
+      padding: 20px;
+    }
+    .video-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 250px;
+      border-radius: 6px;
+    }
+    .quiz-box, .resource-link {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    .course-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  cursor: pointer;
+  margin: 20px;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.course-card .card-title a{
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+}
+    .resource-link i {
+      color: #0072ff;
+      margin-right: 10px;
+    }
+
+    .view-lectures{
+    float: left;
+    text-decoration: none;
+    color:white;
+    background: linear-gradient(45deg, #3d03eb, #6488f4, #3500f2);
+    border-radius: 30px;
+    border: 7px solid #c0dfff;
+    padding: 5px;
+}
+.view-lectures:hover{
+  color: white;
+  border: 7px solid #b1d8ff;
+    background-color: #0769f3;
+}
+#start-now{
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+  </style>
+</head>
+<body>
+<header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="kids.html">For Kids</a>
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <div><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</div>
+  <div><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</div>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+
+  <button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <script>
+  const allBoxes = document.querySelectorAll(".box, .box1, .box2");
+
+  function checkBoxes() {
+    const triggerBottom = window.innerHeight * 0.85;
+    allBoxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        box.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkBoxes);
+  window.addEventListener("load", checkBoxes);
+</script>
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs justify-content-center mb-4" role="tablist">
+    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#videos" type="button">🎥 Lectures</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#quizzes" type="button">📝 Quizzes</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#notes" type="button">📄 Notes</button></li>
+    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#assignments" type="button">📁 Assignments</button></li>
+  </ul>
+
+  <div class="tab-content">
+    <!-- Videos -->
+<div class="tab-pane fade show active" id="videos" role="tabpanel">
+  <h2 style="color:#0b03f9;font-size:30px;text-align: center;">🎥 Explore Course Lectures</h2>
+  <div class="container">
+    <div class="row">
+      <!-- Java Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">Java</h4>
+            <p class="card-text">Deep dive into Core & Advanced Java topics.</p>
+            <a href="java lecture.html" class="view-lectures">View Lectures</a>
+          </div>
+        </div>
+      </div>
+
+       <!-- DSA Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">DSA</h4>
+            <p class="card-text">Start learning Data Structures and Algorithms.</p>
+            <a href="dsa lecture.html" class="view-lectures">View Lectures</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">Artificial Intelligence</h4>
+            <p class="card-text">Explore concepts of AI and ML with practical demos.</p>
+            <a href="ai lecture.html" class="view-lectures">View Lectures</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloud Computing Card -->
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">Cloud Computing</h4>
+      <p class="card-text">Learn AWS, Azure, and cloud fundamentals.</p>
+      <a href="cc lecture.html" class="view-lectures">View Lectures</a>
+    </div>
+  </div>
+</div>
+
+<!-- SQL Card -->
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">SQL</h4>
+      <p class="card-text">Master database queries and relational design.</p>
+      <a href="sql lecture.html" class="view-lectures">View Lectures</a>
+    </div>
+  </div>
+</div>
+
+<!-- Software Testing Card -->
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">Software Testing</h4>
+      <p class="card-text">Understand manual and automation testing tools.</p>
+      <a href="st lecture.html" class="view-lectures">View Lectures</a>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+    <!-- Quizzes -->
+  <div class="tab-pane fade" id="quizzes" role="tabpanel">
+    <div class="container">
+    <h3 class="text-center mb-4" style="color:#0b03f9;font-size:30px;text-align: center;margin-top: 50px;" >📝 Choose a Course to Start the Quiz</h3>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <a href="quiz-java.html" class="text-decoration-none">
+          <div class="card text-center shadow-sm course-card">
+            <div class="card-body">
+              <h5 class="card-title">JAVA</h5>
+              <p class="card-text">Core Java Quiz</p>
+              <a href="java quiz.html" class="view-lectures" id="start-now">Start Now</a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="quiz-dsa.html" class="text-decoration-none">
+          <div class="card text-center shadow-sm course-card">
+            <div class="card-body">
+              <h5 class="card-title">DSA</h5>
+              <p class="card-text">Data Structures & Algorithms</p>
+              <a href="dsa quiz.html" class="view-lectures" id="start-now">Start Now</a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="quiz-ai.html" class="text-decoration-none">
+          <div class="card text-center shadow-sm course-card">
+            <div class="card-body">
+              <h5 class="card-title">AI</h5>
+              <p class="card-text">Artificial Intelligence</p>
+              <a href="ai quiz.html" class="view-lectures" id="start-now">Start Now</a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="quiz-cloud.html" class="text-decoration-none">
+          <div class="card text-center shadow-sm course-card">
+            <div class="card-body">
+              <h5 class="card-title">Cloud Computing</h5>
+              <p class="card-text">Cloud Quiz</p>
+              <a href="cc quiz.html" class="view-lectures" id="start-now">Start Now</a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="quiz-sql.html" class="text-decoration-none">
+          <div class="card text-center shadow-sm course-card">
+            <div class="card-body">
+              <h5 class="card-title">SQL</h5>
+              <p class="card-text">Database Management</p>
+              <a href="sql quiz.html" class="view-lectures" id="start-now">Start Now</a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="quiz-testing.html" class="text-decoration-none">
+          <div class="card text-center shadow-sm course-card">
+            <div class="card-body">
+              <h5 class="card-title">Software Testing</h5>
+              <p class="card-text">Software Testing Tools & Concepts</p>
+              <a href="st quiz.html" class="view-lectures" id="start-now">Start Now</a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+    <!-- Notes -->
+<div class="tab-pane fade" id="notes" role="tabpanel">
+  <div class="container mt-5">
+  <h2 class="mb-4 text-center" style="color:#0b03f9;font-size:30px;text-align: center;margin-top: -25px;">Course Notes</h2>
+  <div class="row">
+
+  <div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">Java</h4>
+      <p class="card-text">Notes on Java fundamentals to advanced topics.</p>
+      <a href="java notes.html" class="view-lectures">View Notes</a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">DSA</h4>
+      <p class="card-text">Structured Data Structures & Algorithms notes.</p>
+      <a href="dsa notes.html" class="view-lectures">View Notes</a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">AI</h4>
+      <p class="card-text">Comprehensive Artificial Intelligence notes for all levels.</p>
+      <a href="ai notes.html" class="view-lectures">View Notes</a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">Cloud Computing</h4>
+      <p class="card-text">Learn the core concepts and services in cloud computing.</p>
+      <a href="cc notes.html" class="view-lectures">View Notes</a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">SQL</h4>
+      <p class="card-text">Query language notes from beginner to advanced SQL.</p>
+      <a href="sql notes.html" class="view-lectures">View Notes</a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 mb-4">
+  <div class="card course-card">
+    <div class="card-body">
+      <h4 class="card-title">Software Testing</h4>
+      <p class="card-text">Essential notes on manual and automation testing.</p>
+      <a href="st notes.html" class="view-lectures">View Notes</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+</div>
+
+    <!-- Assignments -->
+    <div class="tab-pane fade" id="assignments" role="tabpanel">
+  <div class="container mt-5">
+    <h2 class="mb-4 text-center" style="color:#0b03f9;font-size:30px;text-align: center;margin-top: -25px;">Course Assignments</h2>
+    <div class="row">
+
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">Java</h4>
+            <p class="card-text">Practice assignments from basic syntax to OOP concepts.</p>
+            <a href="java assignments.html" class="view-lectures">View Assignment</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">DSA</h4>
+            <p class="card-text">Assignments on arrays, trees, graphs, and more.</p>
+            <a href="dsa assignments.html" class="view-lectures">View Assignment</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">AI</h4>
+            <p class="card-text">Hands-on AI problems and project-based assignments.</p>
+            <a href="ai assignments.html" class="view-lectures">View Assignment</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">Cloud Computing</h4>
+            <p class="card-text">Deployments, services, and architecture tasks.</p>
+            <a href="cc assignments.html" class="view-lectures">View Assignment</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">SQL</h4>
+            <p class="card-text">Solve queries and design schemas with these assignments.</p>
+            <a href="sql assignments.html" class="view-lectures">View Assignment</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card course-card">
+          <div class="card-body">
+            <h4 class="card-title">Software Testing</h4>
+            <p class="card-text">Real-world testing scenarios and test case writing.</p>
+            <a href="st assignments.html" class="view-lectures">View Assignment</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+ <footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p><b><i>Engineered for Excellence-</i></b></p>
+            <p>To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p>Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p>Tel: +91 73874 28839</p>
+            <p>+91 8208017009</p>
+            <p>Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+</body>
+</html>
