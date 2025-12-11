@@ -9,111 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="popup-backdrop" id="popupBackdrop"></div>
-  
-  <div class="main-container" id="mainPopup">
-    <div class="close-main-popup" id="closeMainPopup">✖</div>
-
-    <div class="image-side">
-      <img src="apply now.png" alt="Internship Illustration">
-    </div>
-
-    <div class="content-side">
-      <div class="company-name">Satish IT Services</div>
-      <div class="tagline">Empowering Future IT Professionals</div>
-
-      <h1 class="main-title">INTERNSHIP OPPORTUNITIES</h1>
-      <p class="subtitle">Kickstart your IT career with hands-on real-time project experience!</p>
-
-      <div class="row g-2 mb-3">
-        <div class="col-6"><div class="domain-card">Java Full Stack</div></div>
-        <div class="col-6"><div class="domain-card">Python Full Stack</div></div>
-        <div class="col-6"><div class="domain-card">Data Science & ML</div></div>
-        <div class="col-6"><div class="domain-card">Frontend Dev</div></div>
-      </div>
-
-      <div class="info-section">
-        <div class="info-title">Who can apply?</div>
-        <p>Students, freshers, and career-switchers.</p>
-        <div class="contact-info">
-          <div>📍 Pune</div>
-          <div>🌐 www.thesatishitservices.in</div>
-          <div>📞 7709998839</div>
-        </div>
-      </div>
-
-      <button class="apply-btn" data-bs-toggle="modal" data-bs-target="#applicationModal">
-        APPLY NOW
-      </button>
-    </div>
-  </div>
-
-  <div class="modal fade" id="applicationModal" tabindex="-1" aria-labelledby="applicationModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h5 class="modal-title" id="applicationModalLabel">Application Form</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-body">
-               <form id="applicationForm">
-            <div class="mb-3">
-              <label class="form-label">Full Name *</label>
-              <input type="text" class="form-control" id="fullName" required />
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Email *</label>
-              <input type="email" class="form-control" id="email" required />
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Phone *</label>
-              <input type="tel" class="form-control" id="phone" required />
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Internship Domain *</label>
-              <select class="form-select" id="domain" required>
-                <option value="">Select</option>
-                <option>Java Full Stack Development</option>
-                <option>Python Full Stack Development</option>
-                <option>Data Science & Machine Learning</option>
-                <option>Frontend Development</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Category *</label>
-              <select class="form-select" id="category" required>
-                <option value="">Select</option>
-                <option>Student</option>
-                <option>Fresher</option>
-                <option>Career-Switcher</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Why do you want to join? *</label>
-              <textarea class="form-control" id="message" rows="3" required></textarea>
-            </div>
-
-            <button class="btn btn-primary w-100 submit-btn" type="submit">
-              <span id="submitText">Submit Application</span>
-            </button>
-
-            <div id="successAlert" class="alert success-alert mt-3" style="display:none; color: green; border: 1px solid green; padding: 10px; border-radius: 5px;">
-              ✓ Application submitted successfully! We'll contact you soon.
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </div>
     
   <header> 
   <div class="container-main">
@@ -802,6 +697,7 @@
     <footer>
 </body>
 </html>
+
 
 
 
