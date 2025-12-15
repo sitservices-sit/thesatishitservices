@@ -175,32 +175,8 @@
     </style>
 </head>
 <body>
-    
-  <header> 
-  <div class="container-main">
-    <h1 id="head"><img src="satishit3.png" alt="log" height="60px" width="140px"></h1>
-    <nav class="nav-right">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="About us.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="Contact us.html">Contact Us</a></li>
-        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
-      </ul>
-      <div class="hamburger-container" onclick="openNav()">
-        <input id="checkbox" type="checkbox">
-        <label class="toggle" for="checkbox">
-          <div id="bar1" class="bars"></div>
-          <div id="bar2" class="bars"></div>
-          <div id="bar3" class="bars"></div>
-        </label>
-      </div>
-    </nav>
-  </div>
-</header>
-    
-    <section>
-       <div class="popup-backdrop" id="popupBackdrop"></div>
+
+    <div class="popup-backdrop" id="popupBackdrop"></div>
   
   <div class="main-container" id="mainPopup">
     <div class="close-main-popup" id="closeMainPopup">✖</div>
@@ -305,54 +281,29 @@
       </div>
     </div>
   </div>
-
-        <script>
-    const mainPopup = document.getElementById("mainPopup");
-    const closeMainPopup = document.getElementById("closeMainPopup");
-    const popupBackdrop = document.getElementById("popupBackdrop");
-    const applicationForm = document.getElementById("applicationForm");
-    const successAlert = document.getElementById("successAlert");
-    const applicationModal = document.getElementById("applicationModal"); 
-    
-    function showMainPopup() {
-        mainPopup.style.display = "flex";
-        popupBackdrop.style.display = "block";
-    }
-
-    function hideMainPopup() {
-        mainPopup.style.display = "none";
-        popupBackdrop.style.display = "none";
-    }
-
-    window.addEventListener('load', () => {
-        setTimeout(showMainPopup, 1000);
-    });
-
-    closeMainPopup.onclick = hideMainPopup;
-    
-    popupBackdrop.onclick = hideMainPopup;
-
-    applicationForm.addEventListener("submit", function (e) {
-        e.preventDefault();
- 
-        successAlert.style.display = "block";
-        
-        setTimeout(() => { 
-            successAlert.style.display = "none";
-            this.reset(); 
-
-            const modalInstance = bootstrap.Modal.getInstance(applicationModal);
-            if(modalInstance) {
-                modalInstance.hide();
-            }
-        }, 1200);
-    });
-
-    applicationModal.addEventListener('show.bs.modal', function () {
-      hideMainPopup(); 
-    });
-</script>
-    </section>
+  
+  <header> 
+  <div class="container-main">
+    <h1 id="head"><img src="satishit3.png" alt="log" height="60px" width="140px"></h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="Contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
     
 <section>
   <div id="overlay" onclick="closeNav()"></div>
@@ -997,6 +948,53 @@
   window.addEventListener("load", checkBoxes);
 </script>
 
+    <script>
+    const mainPopup = document.getElementById("mainPopup");
+    const closeMainPopup = document.getElementById("closeMainPopup");
+    const popupBackdrop = document.getElementById("popupBackdrop");
+    const applicationForm = document.getElementById("applicationForm");
+    const successAlert = document.getElementById("successAlert");
+    const applicationModal = document.getElementById("applicationModal"); 
+    
+    function showMainPopup() {
+        mainPopup.style.display = "flex";
+        popupBackdrop.style.display = "block";
+    }
+
+    function hideMainPopup() {
+        mainPopup.style.display = "none";
+        popupBackdrop.style.display = "none";
+    }
+
+    window.addEventListener('load', () => {
+        setTimeout(showMainPopup, 1000);
+    });
+
+    closeMainPopup.onclick = hideMainPopup;
+    
+    popupBackdrop.onclick = hideMainPopup;
+
+    applicationForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+ 
+        successAlert.style.display = "block";
+        
+        setTimeout(() => { 
+            successAlert.style.display = "none";
+            this.reset(); 
+
+            const modalInstance = bootstrap.Modal.getInstance(applicationModal);
+            if(modalInstance) {
+                modalInstance.hide();
+            }
+        }, 1200);
+    });
+
+    applicationModal.addEventListener('show.bs.modal', function () {
+      hideMainPopup(); 
+    });
+</script>
+
     <footer>
         <div class="logo">
             <h2 style="color: orange;">Satish IT Services</h2>
@@ -1027,6 +1025,7 @@
     <footer>
 </body>
 </html>
+
 
 
 
