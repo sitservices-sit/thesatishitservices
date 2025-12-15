@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Courses - LMS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+   <link href="sit.css" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #ffffff;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    box-sizing: border-box;
+    }
+
+    .all-courses{
+        margin-top: -70px;
+    }
+    .text-center{
+        font-weight: bold;
+        font-size: 40px;
+    }
+    .course-card {
+      position: relative;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      background: white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+    }
+
+    .course-img {
+      height:170px;
+width:170px;
+margin-top: 20px;
+margin-left: 75px;
+margin-bottom: 10px;
+border-radius: 15px;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+
+    .course-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+    line-height: 1.5;
+}
+
+.course-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 30px 10px 30px;
+}
+
+.course-duration {
+  color: gray;
+  font-size: 20px;
+}
+
+.price {
+  color: rgb(255, 55, 0);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+ .course-subtopics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 6px 0 10px;
+  }
+
+  .mini-tag {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: inset 0 0 1px #ccc;
+}
+
+ .badge-label {
+  position: absolute;
+  top: 15px;
+  left: -5px;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: white;
+  padding: 4px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 0 5px 5px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  z-index: 10;
+  pointer-events: none;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  70% {
+    transform: translateY(3px);
+  }
+}
+
+    .buy-now {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(45deg, #3d03eb, #6488f4, #3500f2);
+      border-radius: 30px;
+      border: 4px solid #c0dfff;
+      padding: 7px 10px;
+      font-weight: 700;
+      font-size: 17px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      width: fit-content;
+      align-self: flex-end;
+    }
+
+    .buy-now:hover{
+  color: white;
+  border: 7px solid #b1d8ff;
+}
+  .buy-now:active {
+    border: 5px solid #65abf0;
+  }
+
+  #know-more{
+    background: linear-gradient(45deg, #eb0335, #f0a495, #f00c04);
+    border: 4px solid #f5763f;
+  }
+
+   #know-more:hover{
+  color: white;
+  border: 7px solid #f2896c;
+}
+  #know-more:active {
+    border: 5px solid #f70d0d;
+  }
+    .search-input {
+      max-width: 50%;
+      margin: 0 auto 40px;
+    }
+
+    .filter-btn {
+      margin: 5px;
+    }
+    .btn {
+        font-weight: bold;
+        font-size: 25px;
+    }
+    .btn-outline-primary:hover{
+      background: linear-gradient(45deg, #3d03eb, #6488f4, #3500f2);
+      color: white;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .btn-outline-success:hover{
+      background: linear-gradient(45deg, #01692c, #78e49e, #01692c);
+      color: white;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .btn-outline-info:hover{
+      background: linear-gradient(45deg, #0392eb, #7ed0ec, #0392eb);
+      color: white;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .btn-outline-warning:hover{
+      background: linear-gradient(45deg, #f25500, #f4d395, #f25500);
+      color: white;
+        font-weight: bold;
+        font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+
+ <header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="kids.html">Kids Zone</a>
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Our Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+
+  <button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+
+    <section class="all-courses">
+   <div class="container py-5">
+  <h2 class="text-center mb-4" style="color:#0b03f9;">All Courses</h2>
+
+  <!-- Search & Filter -->
+  <div class="text-center mb-3">
+    <input type="text" id="search" class="form-control search-input" placeholder="Search for a course..." onkeyup="filterCourses()"/>
+  </div>
+  <div class="text-center mb-4">
+    <button class="btn btn-outline-primary filter-btn" onclick="filterByCategory('all')">All</button>
+    <button class="btn btn-outline-success filter-btn" onclick="filterByCategory('programming')">Programming</button>
+    <button class="btn btn-outline-info filter-btn" onclick="filterByCategory('design')">Design</button>
+    <button class="btn btn-outline-warning filter-btn" onclick="filterByCategory('marketing')">Marketing</button>
+  </div>
+
+  <div class="row g-4" id="course-container">
+  <!-- Course Cards -->
+  <div class="col-md-4 col-sm-6" data-category="programming" data-title=".NET Full Stack">
+    <div class="course-card">
+      <span class="badge-label">Top Enrolled</span>
+      <img src="Dot NET Full Stack.png" class="course-img" alt=".NET Full Stack">
+      <div class="course-title">.NET Full Stack</div>
+      <div class="course-subtopics">
+            <span class="mini-tag">c#</span>
+            <span class="mini-tag">ASP.NET</span>
+            <span class="mini-tag">MVC</span>
+            <span class="mini-tag">Web API</span>
+            <span class="mini-tag">SQL Server</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 6 months</div>
+        <div class="price">Cost: ₹35,000</div>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href=".Netfullstack-details.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="design" data-title="ui full stack">
+    <div class="course-card">
+      <span class="badge-label">High Demand</span>
+      <img src="uiux.jpg" class="course-img" alt="UI Full Stack">
+      <div class="course-title">UI Full Stack</div>
+      <div class="course-subtopics">
+            <span class="mini-tag">HTML</span>
+            <span class="mini-tag">CSS</span>
+            <span class="mini-tag">JavaScript</span>
+            <span class="mini-tag">MySQL</span>
+            <span class="mini-tag">Angular</span>
+            <span class="mini-tag">React.js</span>
+            <span class="mini-tag">Vue.js</span>
+            <span class="mini-tag">Git & Github</span>
+            <span class="mini-tag">Postman</span>
+            <span class="mini-tag">VS Code</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 4 months</div>
+        <div class="price">Cost: ₹25,000</div>
+      </div>
+      
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="uifullstack-details.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="marketing" data-title="marketing">
+    <div class="course-card">
+      <span class="badge-label">Popular</span>
+      <img src="salesforce.jpeg" class="course-img" alt="Marketing">
+      <div class="course-title">Salesforce</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">Admin</span>
+        <span class="mini-tag">Development</span>
+        <span class="mini-tag">LWC</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 4 months</div>
+        <div class="price">Cost: ₹40,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="salesforce-details.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="programming" data-title="Core java">
+    <div class="course-card">
+      <span class="badge-label">Popular</span>
+      <img src="java2.jpg" class="course-img" alt="Core Java">
+      <div class="course-title">Core Java</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">OOP</span>
+        <span class="mini-tag">Exception Handling</span>
+        <span class="mini-tag">Collections</span>
+        <span class="mini-tag">Multithreading</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 3 months</div>
+        <div class="price">Cost: ₹6,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="corejava-details.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="programming" data-title="advance java">
+    <div class="course-card">
+      <span class="badge-label">In Demand</span>
+      <img src="advanced java.jpeg" class="course-img" alt="Advance java">
+      <div class="course-title">Advance Java</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">JDBC</span>
+        <span class="mini-tag">SpringBoot</span>
+        <span class="mini-tag">Servlets</span>
+        <span class="mini-tag">Web Services</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 3 months</div>
+        <div class="price">Cost: ₹6,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="advance-java-details.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="programming" data-title="devops">
+    <div class="course-card">
+      <span class="badge-label">Trending</span>
+      <img src="dev ops.jpg" class="course-img" alt="DevOps">
+      <div class="course-title">DevOps</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">Linux</span>
+        <span class="mini-tag">Git</span>
+        <span class="mini-tag">Docker</span>
+        <span class="mini-tag">Jenkins</span>
+        <span class="mini-tag">Kubernetes</span>
+        <span class="mini-tag">AWS</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 5 months</div>
+        <div class="price">Cost: ₹40,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="devops-details" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="programming" data-title="data science">
+    <div class="course-card">
+      <span class="badge-label">High Demand</span>
+      <img src="data science.jpeg" class="course-img" alt="Data Science">
+      <div class="course-title">Data Science</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">Python</span>
+        <span class="mini-tag">ML</span>
+        <span class="mini-tag">DL</span>
+        <span class="mini-tag">SQL</span>
+        <span class="mini-tag">AI</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 6 months</div>
+        <div class="price">Cost: ₹40,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="data-science.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="design" data-title="aws cloud">
+    <div class="course-card">
+      <span class="badge-label">Popular</span>
+      <img src="AWS.jpeg" class="course-img" alt="AWS Cloud">
+      <div class="course-title">AWS Cloud</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">EC2</span>
+        <span class="mini-tag">VPC</span>
+        <span class="mini-tag">IAM</span>
+        <span class="mini-tag">S3</span>
+        <span class="mini-tag">RDS</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 4 months</div>
+        <div class="price">Cost: ₹30,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="AWS Cloud.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="design" data-title="UI / UX">
+    <div class="course-card">
+      <span class="badge-label">Trending</span>
+      <img src="uiux.jpg" class="course-img" alt="UI / UX">
+      <div class="course-title">UI / UX</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">Figma</span>
+        <span class="mini-tag">Wireframing</span>
+        <span class="mini-tag">Prototyping</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 3 months</div>
+        <div class="price">Cost: ₹25,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="ui/ux.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="programming" data-title="software testing">
+    <div class="course-card">
+      <span class="badge-label">In-Demand</span>
+      <img src="software-testing.jpeg" class="course-img" alt="Software Testing">
+      <div class="course-title">Software Testing</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">Manual + Automation</span>
+            <span class="mini-tag">Selenium</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 4 months</div>
+        <div class="price">Cost: ₹25,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="software testing.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6" data-category="programming" data-title="data analytics">
+    <div class="course-card">
+      <span class="badge-label">Top Enrolled</span>
+      <img src="analysis.jpg" class="course-img" alt="Data Analytics">
+      <div class="course-title">Data Analytics</div>
+      <div class="course-subtopics">
+        <span class="mini-tag">Power BI</span>
+        <span class="mini-tag">Tableau</span>
+        <span class="mini-tag">Looker</span>
+        <span class="mini-tag">Python R RapidMiner</span>
+        <span class="mini-tag">MySQL</span>
+        <span class="mini-tag">Excel</span>
+        <span class="mini-tag">OpenRefine</span>
+        <span class="mini-tag">Pandas (Python)</span>
+        <span class="mini-tag">AWS</span>
+      </div>
+      <div class="course-info">
+        <div class="course-duration">⏰ 3 months</div>
+        <div class="price">Cost: ₹20,000</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+       <a href="Data analytics.html" class="buy-now" id="know-more">Know More</a>
+       <a href="Enrollment Form.html" class="buy-now">Enroll Now</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+function filterByCategory(category) {
+  const cards = document.querySelectorAll('#course-container > div');
+  cards.forEach(card => {
+    const matches = category === 'all' || card.dataset.category === category;
+    card.style.display = matches ? 'block' : 'none';
+  });
+}
+
+function filterCourses() {
+  const query = document.getElementById('search').value.toLowerCase();
+  const cards = document.querySelectorAll('#course-container > div');
+  cards.forEach(card => {
+    const title = card.dataset.title.toLowerCase();
+    card.style.display = title.includes(query) ? 'block' : 'none';
+  });
+}
+</script>
+    </section>
+
+     <footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p><b><i>Engineered for Excellence-</i></b></p>
+            <p>To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p>Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p>Tel: +91 73874 28839</p>
+            <p>+91 8208017009</p>
+            <p>Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+</body>
+</html>
