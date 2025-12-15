@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enroll in Java Full-Stack Course</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="sit.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .checkout-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px; 
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .checkout-container:hover{
+        transform: scale(1.05);
+    }
+    .checkout-header {
+       background: linear-gradient(115deg, #9f01ea 10%, #56d8e4 90%);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 10px 10px 0 0; 
+      margin: -30px -30px 30px -30px;
+      text-align: center;
+    }
+    .checkout-header h1 {
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .lead{
+      font-weight: 400;
+    }
+    .course-summary {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background-color: #fcfcfc;
+    }
+    .course-summary h4 {
+      font-weight: bold;
+      color: #0b03f9;
+      margin-bottom: 15px;
+    }
+    .course-summary p {
+      margin-bottom: 8px;
+    }
+    .course-summary .price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: red;
+      text-align: right;
+      margin-top: 15px;
+    }
+    .form-label {
+      font-weight: 500;
+    }
+    .btn-primary-custom {
+      background-color: #0b03f9;;
+      border-color: #0b03f9;;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 8px; 
+      transition: background-color 0.3s ease;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .btn-primary-custom:hover {
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      transform: scale(1.05);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .btn-outline-secondary-custom {
+      color: black;
+      background-color:aliceblue;
+      padding: 10px 20px;
+      border-radius: 8px; 
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .btn-outline-secondary-custom:hover {
+      background-color: #0e0e0e;
+      color: white;
+      font-weight: bold;
+      transform: scale(1.05);
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    .payment-options {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      background-color: #fcfcfc;
+    }
+    .payment-options h5 {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .form-control {
+        border-radius: 8px; 
+    }
+    .order-confirmation-message {
+        display: none; 
+        background-color: #d4edda;
+        color: #155724;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+  </style>
+</head>
+<body>
+  <header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="kids.html">Kids Zone</a>
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Our Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+
+ <button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <div class="checkout-container">
+    <div class="checkout-header">
+      <h1>Enroll in Java Full-Stack </h1>
+      <p class="lead mb-0">Complete your secure enrollment</p>
+    </div>
+
+    <div class="course-summary">
+      <h4>Order Summary</h4>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span>Java Full-Stack</span>
+        <span>₹30,000.00</span>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>Total Amount:</strong>
+        <span class="price">₹30,000.00</span>
+      </div>
+    </div>
+
+    <form id="checkoutForm">
+      <h4 class="mb-3">Billing Details</h4>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+        </div>
+        <div class="col-sm-6">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName"  placeholder="Enter your last name" required>
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="col-12">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="Enter your full address" required>
+        </div>
+        <div class="col-md-5">
+          <label for="country" class="form-label">Country</label>
+          <select class="form-select" id="country" required>
+            <option value="">Choose...</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>Canada</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="state" class="form-label">State</label>
+          <select class="form-select" id="state" required>
+            <option value="">Choose...</option>
+            <option>Maharashtra</option>
+            <option>California</option>
+            <option>New York</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="zip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="zip" required>
+        </div>
+      </div>
+
+      <div class="payment-options mt-4">
+        <h5>Payment Method</h5>
+        <div class="form-check">
+          <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+          <label class="form-check-label" for="credit">Credit card</label>
+        </div>
+        <div class="form-check">
+          <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+          <label class="form-check-label" for="debit">Debit card</label>
+        </div>
+        <div class="form-check">
+          <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+          <label class="form-check-label" for="paypal">PayPal</label>
+        </div>
+        <div class="form-check">
+          <input id="upi" name="paymentMethod" type="radio" class="form-check-input" required>
+          <label class="form-check-label" for="upi">UPI</label>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <button class="w-100 btn btn-primary-custom btn-lg" type="submit">Place Order</button>
+      <a href="java full-stack details.html" class="w-100 btn btn-outline-secondary-custom btn-lg mt-3">Go Back to Course</a>
+    </form>
+
+    <div id="orderConfirmation" class="order-confirmation-message">
+        Order Placed Successfully! Thank you for your purchase.
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkoutForm = document.getElementById('checkoutForm');
+      const orderConfirmationMessage = document.getElementById('orderConfirmation');
+
+      checkoutForm.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        if (checkoutForm.checkValidity()) {
+          orderConfirmationMessage.style.display = 'block'; 
+          checkoutForm.reset(); 
+
+          setTimeout(() => {
+            orderConfirmationMessage.style.display = 'none';
+          }, 5000); 
+
+        } else {
+          checkoutForm.classList.add('was-validated');
+        }
+      });
+    });
+  </script>
+
+  <footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p><b><i>Engineered for Excellence-</i></b></p>
+            <p>To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p>Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p>Tel: +91 73874 28839</p>
+            <p>+91 8208017009</p>
+            <p>Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+</body>
+</html>
