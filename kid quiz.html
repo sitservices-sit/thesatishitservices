@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kids IT World Quiz</title>
+  <link rel="stylesheet" href="sit.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #e1f5fe, #fce4ec);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #kid-header{
+      text-align: center;
+      color: #0b03f9;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .question-card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+                  
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 10px solid #0690f9;
+      transition: transform 0.3s ease;
+    }
+    .question-card:hover{
+      transform: scale(1.02);
+    }
+
+    .btn-submit {
+      background: linear-gradient(45deg, #e1366f, #f38bae, #f70052);
+      border: 4px solid #ed6b97;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      color:white;
+      font-size: larger;
+      padding: 10px;
+      font-weight:bold;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      color:white;
+      font-weight: bold;
+      border: 7px solid #e683a4;
+      transform: scale(1.05);
+    }
+
+      .btn-submit:active {
+    border: 5px solid #dd2260
+  }
+
+    .result {
+      font-size:30px;
+      color: rgb(1, 5, 240);
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+<header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="kids.html">Kids Zone</a>
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Our Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+<button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <h1 id="kid-header" class="box">🌟 IT World Quiz for Kids 🌟</h1>
+  <div class="quiz-container">
+    <form id="quizForm">
+   
+    </form>
+    <div class="text-center">
+      <button class="btn btn-submit mt-3 box" onclick="submitQuiz()">Submit Answers</button>
+      <div class="result" id="resultText"></div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "1. What does 'IT' stand for?",
+        options: ["Internet Technology", "Information Technology", "Instant Tech", "Image Text"],
+        answer: "Information Technology"
+      },
+      {
+        question: "2. What is the brain of a computer?",
+        options: ["Keyboard", "CPU", "Mouse", "Monitor"],
+        answer: "CPU"
+      },
+      {
+        question: "3. What device helps you see what's on the computer?",
+        options: ["Monitor", "Printer", "Speaker", "Scanner"],
+        answer: "Monitor"
+      },
+      {
+        question: "4. What does a mouse do?",
+        options: ["Prints papers", "Controls pointer", "Plays music", "Scans images"],
+        answer: "Controls pointer"
+      },
+      {
+        question: "5. Which one is a search engine?",
+        options: ["Google", "Paint", "Word", "Windows"],
+        answer: "Google"
+      },
+      {
+        question: "6. What is used to type letters into the computer?",
+        options: ["Scanner", "Keyboard", "Speaker", "Projector"],
+        answer: "Keyboard"
+      },
+      {
+        question: "7. What is an app?",
+        options: ["A computer", "A game", "A program on a device", "A machine"],
+        answer: "A program on a device"
+      },
+      {
+        question: "8. Which of these is a computer language?",
+        options: ["English", "Python", "Hindi", "Spanish"],
+        answer: "Python"
+      },
+      {
+        question: "9. What is the name of a small robot toy that can move?",
+        options: ["Mouse", "Bot", "Bug", "Brush"],
+        answer: "Bot"
+      },
+      {
+        question: "10. What is a virus in computers?",
+        options: ["A candy", "A robot", "A harmful program", "A toy"],
+        answer: "A harmful program"
+      },
+      {
+        question: "11. What is the cloud in computing?",
+        options: ["A rain cloud", "An app", "Online storage", "A software"],
+        answer: "Online storage"
+      },
+      {
+        question: "12. What can we use to talk to Alexa or Siri?",
+        options: ["Typing", "Speaking", "Drawing", "Singing"],
+        answer: "Speaking"
+      },
+      {
+        question: "13. What is coding?",
+        options: ["Making food", "Creating computer programs", "Fixing machines", "Playing games"],
+        answer: "Creating computer programs"
+      },
+      {
+        question: "14. What does a printer do?",
+        options: ["Draw pictures", "Write programs", "Prints on paper", "Show videos"],
+        answer: "Prints on paper"
+      },
+      {
+        question: "15. Which one is used to play music on a computer?",
+        options: ["Speaker", "Mouse", "Monitor", "Scanner"],
+        answer: "Speaker"
+      },
+      {
+        question: "16. What is a tablet?",
+        options: ["A medicine", "A small computer", "A charger", "A mouse"],
+        answer: "A small computer"
+      },
+      {
+        question: "17. Which is NOT a computer part?",
+        options: ["CPU", "Mouse", "Elephant", "Keyboard"],
+        answer: "Elephant"
+      },
+      {
+        question: "18. Which one helps you connect to the Internet?",
+        options: ["Router", "Scanner", "Monitor", "Speaker"],
+        answer: "Router"
+      },
+      {
+        question: "19. What is used to take pictures into a computer?",
+        options: ["Monitor", "Speaker", "Scanner", "Mouse"],
+        answer: "Scanner"
+      },
+      {
+        question: "20. What does 'www' mean in a website?",
+        options: ["World Wide Web", "Water With Waves", "Window With Web", "Web World Wide"],
+        answer: "World Wide Web"
+      }
+    ];
+
+    const form = document.getElementById('quizForm');
+    questions.forEach((q, i) => {
+      const card = document.createElement('div');
+      card.className = 'question-card';
+      card.innerHTML = `
+        <p><strong>${q.question}</strong></p>
+        ${q.options.map(opt => `
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q${i}" value="${opt}" id="q${i}-${opt}">
+            <label class="form-check-label" for="q${i}-${opt}">
+              ${opt}
+            </label>
+          </div>
+        `).join('')}
+      `;
+      form.appendChild(card);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && selected.value === q.answer) {
+          score++;
+        }
+      });
+
+      const result = document.getElementById('resultText');
+      result.innerHTML = `🎉 You scored <strong>${score}</strong> out of <strong>${questions.length}</strong>!<br>${score >= 15 ? 'Amazing! 🎊 You know your tech!' : 'Keep learning! 🌟'}`;
+    }
+  </script>
+
+  <script>
+  const allBoxes = document.querySelectorAll(".box, .box1, .box2");
+
+  function checkBoxes() {
+    const triggerBottom = window.innerHeight * 0.85;
+    allBoxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        box.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkBoxes);
+  window.addEventListener("load", checkBoxes);
+</script>
+
+  <footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p style="color: white;"><b><i>Engineered for Excellence-</i></b></p>
+            <p style="color: white;">To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p style="color: white;"><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p style="color: white;">Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p style="color: white;">Tel: +91 73874 28839</p>
+            <p style="color: white;">+91 8208017009</p>
+            <p style="color: white;">Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+</body>
+</html>

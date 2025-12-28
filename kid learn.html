@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn About Computers!</title>
+  <link rel="stylesheet" href="sit.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #e1f5fe, #fce4ec);
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #0b03f9;
+      margin: 30px 0;
+      font-weight: bold;
+    }
+
+    .card {
+      border-radius: 20px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card-title{
+        font-size: larger;
+    }
+
+    .card-text{
+        font-size: large;
+    }
+
+    .fun-fact ul li{
+        font-size: larger;
+    }
+    .card-img-top {   
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .fun-fact {
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+     #motivate {
+      text-align: center;
+      padding: 20px;
+      margin-top: 7px;
+      color:#ff4081;
+      font-weight: bold;
+    }
+    .quiz-btn{
+  background: linear-gradient(to right, #03a8ef, #020ef0);
+  padding: 10px 25px;
+  font-weight: 500;
+  font-size: 20px;
+  color:white;
+  margin-bottom: 10px;
+  text-decoration: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+                  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      transition: transform 0.3s ease;
+}
+ .quiz-btn:hover{
+  background: linear-gradient(to left, #03a8ef, #6824f1);
+  font-weight: 600;
+  font-size: 22px;
+  color:white;
+  text-decoration: none;
+}
+  </style>
+</head>
+<body>
+
+    <header> 
+  <div class="container-main">
+    <h1 id="head">Satish IT Services</h1>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="Sit Website.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+        <li><a href="sit login.html" class="login-button">LOGIN</a></li>
+      </ul>
+      <div class="hamburger-container" onclick="openNav()">
+        <input id="checkbox" type="checkbox">
+        <label class="toggle" for="checkbox">
+          <div id="bar1" class="bars"></div>
+          <div id="bar2" class="bars"></div>
+          <div id="bar3" class="bars"></div>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div id="overlay" onclick="closeNav()"></div>
+<div id="sideNav">
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/open-book--v2.png" alt="logo">
+    <h4>SIT Services</h4>
+    <span class="closebtn" onclick="closeNav()">×</span>
+  </div>
+
+  <div class="submenu-font">
+    <a href="Study Materials.html">Study Center</a>
+    <a href="Batch Schedule.html">Batch Schedule</a>
+    <a href="kids.html">Kids Zone</a>
+    <a href="About us.html">About Us</a>
+    <a href="services.html" class="toggle-submenu" onclick="toggleSubmenu(event)">Our Services</a>
+    <div class="submenu">
+      <a href="services.html">As Student</a>
+      <a href="services.html">As Instructor</a>
+    </div>
+    <a href="Contact us.html">Contact Us</a>
+  </div>
+
+ <div class="contact-info-sidenav">
+  <p><img class="icon" src="Email.jpg" alt="email"/> SatishIt@gmail.com</p>
+  <p><img class="icon" src="Call.jpg" alt="phone"/> +91 1243567980</p>
+</div>
+</div>
+<script>
+  const sideNav = document.getElementById("sideNav");
+  const overlay = document.getElementById("overlay");
+
+  function openNav() {
+    sideNav.classList.add("active");
+    overlay.style.display = "block";
+  }
+
+  function closeNav() {
+    sideNav.classList.remove("active");
+    overlay.style.display = "none";
+  }
+
+  function toggleSubmenu(event) {
+    event.preventDefault();
+    const submenu = event.target.nextElementSibling;
+    if (submenu && submenu.classList.contains("submenu")) {
+      submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeNav();
+    }
+  });
+</script>
+</section>
+<button id="scrollToTop" title="Go to top">🡩</button>
+
+  <script>
+    const btn = document.getElementById('scrollToTop');
+    let visible = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        if (!visible) {
+          btn.classList.add('show');
+          visible = true;
+        }
+      } else {
+        if (visible) {
+          btn.classList.remove('show');
+          visible = false;
+        }
+      }
+    });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <h1 class="section-title box">👩‍💻 Let's Learn About Computers! 🧑‍💻</h1>
+  <h2 id="motivate" class="box1">Keep Learning,Little Stars 🌟</h2>
+
+  <div class="container">
+    <div class="row g-4">
+      <!-- Monitor -->
+      <div class="col-md-4 box1">
+        <div class="card">
+          <img src="monitor.jpeg" class="card-img-top" alt="Monitor">
+          <div class="card-body">
+            <h5 class="card-title">🖥️ Monitor</h5>
+            <p class="card-text">The screen you look at! It shows what you’re doing, like games, videos, and more!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keyboard -->
+      <div class="col-md-4 box1">
+        <div class="card">
+          <img src="keyboard.jpeg" class="card-img-top" alt="Keyboard">
+          <div class="card-body">
+            <h5 class="card-title">⌨️ Keyboard</h5>
+            <p class="card-text">It has buttons called keys. You press them to type letters, numbers, and symbols.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mouse -->
+      <div class="col-md-4 box1">
+        <div class="card">
+          <img src="mouse.jpeg" class="card-img-top" alt="Mouse">
+          <div class="card-body">
+            <h5 class="card-title">🖱️ Mouse</h5>
+            <p class="card-text">You move the mouse to move the arrow on screen. Click to open things!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CPU -->
+      <div class="col-md-4 box2">
+        <div class="card">
+          <img src="cpu.jpeg" class="card-img-top" alt="CPU">
+          <div class="card-body">
+            <h5 class="card-title">🧠 CPU</h5>
+            <p class="card-text">The brain of the computer! It helps the computer think and do tasks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Printer -->
+      <div class="col-md-4 box2">
+        <div class="card">
+          <img src="printer.jpeg" class="card-img-top" alt="Printer">
+          <div class="card-body">
+            <h5 class="card-title">🖨️ Printer</h5>
+            <p class="card-text">Prints your drawings, homework, or anything on paper from the computer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speakers -->
+      <div class="col-md-4 box2">
+        <div class="card">
+          <img src="speaker.jpeg" class="card-img-top" alt="Speakers">
+          <div class="card-body">
+            <h5 class="card-title">🔊 Speakers</h5>
+            <p class="card-text">Speakers help you hear sound from games, songs, and videos!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fun-fact mt-5">
+      <h2 class="section-title text-center box"> Fun Facts About Computers 🖥️</h2>
+      <ul class="list-group list-group-flush mb-5">
+        <li class="list-group-item box1">🕹️ The first computers were as big as a room!</li>
+        <li class="list-group-item box2">🎮 Computers help us play games, learn, and be creative.</li>
+        <li class="list-group-item box1">🤖 Computers are used in robots, space, and even in cars!</li>
+        <li class="list-group-item box2">🧠 The CPU works just like your brain, super fast!</li>
+        <li class="list-group-item box1">📱 Phones and tablets are also types of computers!</li>
+       </ul>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="kid quiz.html" class="quiz-btn btn btn-lg btn-primary box">🎯 Ready for a Fun Quiz?</a>
+    </div>
+  </div>
+
+  <script>
+  const allBoxes = document.querySelectorAll(".box, .box1, .box2");
+
+  function checkBoxes() {
+    const triggerBottom = window.innerHeight * 0.85;
+    allBoxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        box.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkBoxes);
+  window.addEventListener("load", checkBoxes);
+</script>
+
+  <footer>
+        <div class="logo">
+            <h2 style="color: orange;">Satish IT Services</h2>
+            <p style="color: white;"><b><i>Engineered for Excellence-</i></b></p>
+            <p style="color: white;">To empower students with quality knowledge and guidance, ensuring they <br>  unearth and cultivate their true talents.</p>
+            <p style="color: white;"><strong>Working Hours:</strong> Mon to Sun from 6am to 9pm</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Online Training</a>
+            <a href="#">Internships</a>
+            <a href="#">Corporate Training</a>
+            <a href="#">Placements</a>
+        </div>
+        <div>
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Refund Policy</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p style="color: white;">Phase 2, 1st floor, Office No. 108, Mayur Trade Center, Bus stop of Chichwad Station, Maharashtra-411019</p>
+            <p style="color: white;">Tel: +91 73874 28839</p>
+            <p style="color: white;">+91 8208017009</p>
+            <p style="color: white;">Email: sitservices89@gmail.com</p>
+        </div>
+    <footer>
+
+</body>
+</html>
